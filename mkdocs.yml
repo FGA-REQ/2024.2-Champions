@@ -3,15 +3,14 @@ repo_name: "2024.2-Champions"
 repo_url: https://github.com/FGA-REQ/2024.2-Champions
 
 nav:
-  - Instruções mkdocs: "index.md"
-  - Atas de Reunião:
-      - Ata 1: "atas-reuniao/ata-reuniao-1.md"
-  - Declaração de Requisitos:
-      - Declaração: "dec/declaracao-requisitos.md"
-      - Fluxo de Usuário: "dec/fluxo-usuario.md"
-      - Histórias de Usuário: "dec/historias-usuario.md"
-      - Backlog do Produto: "dec/backlog.md"
+  - Página Inicial: "index.md"
+  - Histórico de Versões: "historico/historico.md"
   - Regras de Negócio: "regras-negocio.md"
+  - Declaração de Requisitos:
+      - Histórias de Usuário: "dec/historias-usuario.md"
+      - Fluxo de Usuário: "dec/fluxo-usuario.md"
+      - Declaração: "dec/declaracao-requisitos.md"
+      - Backlog do Produto: "dec/backlog.md"
 
 theme:
   name: material

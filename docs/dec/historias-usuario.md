@@ -46,7 +46,7 @@ As histórias de usuário são uma declaração de uma pequena funcionalidade qu
 
 ---
 
-#### História de Usuário 03 - Cálculo de Menção
+### História de Usuário 03 - Cálculo de Menção
 
 #### Cartão
 
@@ -112,7 +112,7 @@ As histórias de usuário são uma declaração de uma pequena funcionalidade qu
 
 ---
 
-## História de Usuário 06 - Integração com Google Calendar
+### História de Usuário 06 - Integração com Google Calendar
 
 #### Cartão
 
