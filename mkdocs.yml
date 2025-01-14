@@ -1,14 +1,17 @@
 site_name: Documentação
+repo_name: "2024.2-Champions"
+repo_url: https://github.com/FGA-REQ/2024.2-Champions
 
 nav:
   - Instruções mkdocs: "index.md"
   - Atas de Reunião:
-    - Ata 1: "atas-reuniao/ata-reuniao-1.md"
-  - Declaração de Requisitos:      
-    - Declaração: "dec/declaracao-requisitos.md"
-    - Histórias de Usuário: "dec/historias-usuario.md"
-    - Backlog do Produto: "dec/backlog.md"
+      - Ata 1: "atas-reuniao/ata-reuniao-1.md"
+  - Declaração de Requisitos:
+      - Declaração: "dec/declaracao-requisitos.md"
+      - Fluxo de Usuário: "dec/fluxo-usuario.md"
+      - Histórias de Usuário: "dec/historias-usuario.md"
+      - Backlog do Produto: "dec/backlog.md"
   - Regras de Negócio: "regras-negocio.md"
 
-theme:     
+theme:
   name: material
