@@ -4,8 +4,9 @@ nav:
   - Instruções mkdocs: "index.md"
   - Atas de Reunião:
     - Ata 1: "atas-reuniao/ata-reuniao-1.md"
-  - Declaração de Requisitos: "declaracao-requisitos.md"
+  - Declaração de Requisitos:      
+    - "declaracao-requisitos.md"
   - Regras de Negócio: "regras-negocio.md"
 
-theme:
+theme:     
   name: material
