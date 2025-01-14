@@ -5,7 +5,9 @@ nav:
   - Atas de Reunião:
     - Ata 1: "atas-reuniao/ata-reuniao-1.md"
   - Declaração de Requisitos:      
-    - "declaracao-requisitos.md"
+    - Declaração: "dec/declaracao-requisitos.md"
+    - Histórias de Usuário: "dec/historias-usuario.md"
+    - Backlog do Produto: "dec/backlog.md"
   - Regras de Negócio: "regras-negocio.md"
 
 theme:     
