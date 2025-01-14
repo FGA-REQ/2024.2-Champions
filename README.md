@@ -13,6 +13,7 @@
 | <img src="https://github.com/aqela-batata-alt.png" width="100" height="100"> | **Víctor Moreira** | [GitHub - Integrante 3](https://github.com/aqela-batata-alt) |
 | <img src="https://github.com/DudaV228.png" width="100" height="100"> | **Maria Eduarda** | [GitHub - Maria Eduarda](https://github.com/DudaV228) |
 | <img src="https://github.com/FelipeNunesdM.png" width="100" height="100">| **Felipe Nunes**|[GitHub - Felipe Nunes](https://github.com/FelipeNunesdM) |
+| <img src="https://github.com/arthurfonsecaa.png" width="100" height="100">| **Arthur Fonseca**|[GitHub - Arthur Fonseca](https://github.com/arthurfonsecaa) |
 
 
 
