@@ -3,3 +3,4 @@
 |  1.0   | 14/01/2025 |                                                                                    Atualização da página principal de documentação                                                                                    |     Lucas Bottino     |
 |  1.1   | 14/01/2025 |                                                                   Definição de Histórias de Usuário, História de Usuário 01 e Definição do Backlog                                                                    |     Lucas Bottino     |
 |  1.2   | 14/01/2025 | Criação e organização das Histórias de Usuário com base no fluxo de usuário, criação do backlog do produto, criação do fluxo do usuário, tabela em MKDocs e ajuste na História de Usuário 05 para incluir avaliações. |     Lucas Bottino     |
+| 1.3 | 15/01/2025 | Adição da documentação do requisito declarado como "Link Gerado para Salvamento de Dados" | Arthur Fonseca |
