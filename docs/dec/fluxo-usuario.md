@@ -63,3 +63,13 @@ O usuário acessa a interface do site, onde verá o layout inicial.
 2. O sistema exibe um **calendário** com as datas das provas das disciplinas cadastradas.
 3. O usuário clica em **Integrar com Google Calendar**.
 4. Se a integração for bem-sucedida, o usuário recebe um e-mail de confirmação com o link para a agenda integrada.
+
+## 8. Gerar link para salvar dados
+
+### Passos para gerar o link de salvamento de dados:
+
+1. O usuário, após fazer login, vai para a tela de **usuário**.
+2. Nessa tela, há a opção **"Salvar dados em link"**.
+
+
+

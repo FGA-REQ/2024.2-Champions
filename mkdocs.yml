@@ -1,7 +1,17 @@
 site_name: Documentação
 repo_name: "2024.2-Champions"
 repo_url: https://github.com/FGA-REQ/2024.2-Champions
-
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.instant
+  extra:
+    social:
+      - icon: fontawesome/brands/github
+        link: https://github.com/2024.2-Champions
+    footer:
+      copyright: "© 2025 MediaMestre"
 nav:
   - Página Inicial: "index.md"
   - Histórico de Versões: "historico/historico.md"
@@ -12,5 +22,5 @@ nav:
       - Declaração: "dec/declaracao-requisitos.md"
       - Backlog do Produto: "dec/backlog.md"
 
-theme:
-  name: material
+extra_css:
+  - css/extra.css

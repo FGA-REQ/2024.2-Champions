@@ -1,0 +1,1222 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../regras-negocio/">
+      
+      
+        <link rel="next" href="../fluxo-usuario/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.45">
+    
+    
+      
+        <title>Histórias de Usuário - Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#historia-de-usuario-01-cadastro-no-sistema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Documentação" class="md-header__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Histórias de Usuário
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FGA-REQ/2024.2-Champions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2024.2-Champions
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Página Inicial
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../historico/historico/" class="md-tabs__link">
+        
+  
+    
+  
+  Histórico de Versões
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../regras-negocio/" class="md-tabs__link">
+        
+  
+    
+  
+  Regras de Negócio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  Declaração de Requisitos
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Documentação" class="md-nav__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentação
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FGA-REQ/2024.2-Champions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2024.2-Champions
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Página Inicial
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../historico/historico/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Histórico de Versões
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../regras-negocio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Regras de Negócio
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Declaração de Requisitos
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Declaração de Requisitos
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Histórias de Usuário
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Histórias de Usuário
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-01-cadastro-no-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 01 - Cadastro no Sistema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 01 - Cadastro no Sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-02-selecao-de-disciplinas" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 02 - Seleção de Disciplinas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 02 - Seleção de Disciplinas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-03-calculo-de-mencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 03 - Cálculo de Menção
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 03 - Cálculo de Menção">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-04-calculo-do-indice-de-rendimento-academico-ira" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 04 - Cálculo do Índice de Rendimento Acadêmico (IRA)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 04 - Cálculo do Índice de Rendimento Acadêmico (IRA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-05-gerar-calendario-de-provas-e-avaliacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 05 - Gerar Calendário de Provas e Avaliações
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 05 - Gerar Calendário de Provas e Avaliações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-06-integracao-com-google-calendar" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 06 - Integração com Google Calendar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 06 - Integração com Google Calendar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluxo-usuario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fluxo de Usuário
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../declaracao-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Declaração
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backlog do Produto
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-01-cadastro-no-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 01 - Cadastro no Sistema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 01 - Cadastro no Sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-02-selecao-de-disciplinas" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 02 - Seleção de Disciplinas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 02 - Seleção de Disciplinas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-03-calculo-de-mencao" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 03 - Cálculo de Menção
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 03 - Cálculo de Menção">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-04-calculo-do-indice-de-rendimento-academico-ira" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 04 - Cálculo do Índice de Rendimento Acadêmico (IRA)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 04 - Cálculo do Índice de Rendimento Acadêmico (IRA)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-05-gerar-calendario-de-provas-e-avaliacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 05 - Gerar Calendário de Provas e Avaliações
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 05 - Gerar Calendário de Provas e Avaliações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-06-integracao-com-google-calendar" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 06 - Integração com Google Calendar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 06 - Integração com Google Calendar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Histórias de Usuário</h1>
+
+<p>As histórias de usuário são uma declaração de uma pequena funcionalidade que o cliente pretende ver desenvolvida no produto, ou seja, algo que o produto precisa fazer. É capturada em um cartão, não devendo ter detalhes de comportamento do produto, os quais são deixados para ser desenvolvidos mais tarde por meio de conversas e critérios de aceitação entre a equipe e o proprietário do produto.</p>
+<h3 id="historia-de-usuario-01-cadastro-no-sistema">História de Usuário 01 - Cadastro no Sistema</h3>
+<h4 id="cartao">Cartão</h4>
+<p>"Como usuário eu quero me cadastrar no sistema para que eu consiga escolher o meu curso."</p>
+<h4 id="conversacao">Conversação</h4>
+<ul>
+<li>O usuário pode se cadastrar de qualquer forma?</li>
+<li>O que é essencial para o cadastro?</li>
+<li>Caso falte alguma informação, o sistema deve validar os campos obrigatórios?</li>
+</ul>
+<p><strong>Resposta:</strong> O usuário precisa fornecer <strong>email</strong>, <strong>senha</strong> e <strong>curso</strong> para completar o cadastro. Campos incompletos ou inválidos devem gerar mensagens de erro.</p>
+<h4 id="confirmacao">Confirmação</h4>
+<ul>
+<li>O usuário deverá se cadastrar fornecendo seu <strong>endereço de e-mail</strong>, <strong>senha</strong> e <strong>curso</strong>.</li>
+</ul>
+<p><strong>(US01)</strong> Como usuário, eu quero me cadastrar no sistema para que eu consiga escolher o meu curso</p>
+<hr />
+<h3 id="historia-de-usuario-02-selecao-de-disciplinas">História de Usuário 02 - Seleção de Disciplinas</h3>
+<h4 id="cartao_1">Cartão</h4>
+<p>"Como usuário, eu quero selecionar as disciplinas que estou cursando no semestre dentro da plataforma."</p>
+<h4 id="conversacao_1">Conversação</h4>
+<ul>
+<li>O usuário pode selecionar quantas disciplinas ele quiser?</li>
+<li>O que acontece se o usuário estiver cursando apenas uma disciplina? Ele pode escolher apenas uma?</li>
+<li>O usuário busca disciplinas pelo nome ou código?</li>
+<li>Podemos incluir a busca por professor também?</li>
+</ul>
+<p><strong>Resposta:</strong> O usuário pode escolher <strong>pelo menos uma disciplina</strong> e a busca será feita por <strong>nome da disciplina</strong> ou <strong>código</strong>. A busca por professor não é necessária para a funcionalidade.</p>
+<h4 id="confirmacao_1">Confirmação</h4>
+<ul>
+<li>O usuário poderá escolher <strong>uma ou mais disciplinas</strong>.</li>
+<li>A busca pelas disciplinas será feita através do <strong>nome</strong> ou <strong>código</strong> da disciplina.</li>
+</ul>
+<p><strong>(US02)</strong> Como usuário, eu quero selecionar as disciplinas que estou cursando no semestre com base no <strong>código da disciplina</strong> e no <strong>nome</strong> da disciplina.</p>
+<hr />
+<h3 id="historia-de-usuario-03-calculo-de-mencao">História de Usuário 03 - Cálculo de Menção</h3>
+<h4 id="cartao_2">Cartão</h4>
+<p>"Como usuário, eu quero receber o valor que preciso tirar em cada prova para alcançar uma menção desejada."</p>
+<h4 id="conversacao_2">Conversação</h4>
+<ul>
+<li>O usuário indica a <strong>nota que obteve</strong> ou o sistema calcula as <strong>notas mínimas</strong> necessárias?</li>
+<li>O sistema deve considerar diferentes formas de calcular a média: média simples, média ponderada ou outro cálculo?</li>
+<li>O usuário escolhe a menção que deseja ou o sistema sugere? Qual deve ser a interação?</li>
+</ul>
+<p><strong>Resposta:</strong> O usuário <strong>indica</strong> como deseja calcular a média (simples, ponderada ou personalizada), depois escolhe a <strong>menção</strong> desejada (MM, MS ou SS), e o sistema retornará as <strong>notas mínimas necessárias</strong> para alcançar a menção.</p>
+<h4 id="confirmacao_2">Confirmação</h4>
+<ul>
+<li>O usuário indicará como o cálculo da média será feito (média aritmética, média ponderada ou fórmula específica).</li>
+<li>O usuário indicará qual menção deseja alcançar, e o sistema fornecerá as notas mínimas necessárias.</li>
+</ul>
+<p><strong>(US03)</strong> Como usuário, eu quero receber o valor que preciso tirar em cada prova para alcançar uma menção desejada.</p>
+<hr />
+<h3 id="historia-de-usuario-04-calculo-do-indice-de-rendimento-academico-ira">História de Usuário 04 - Cálculo do Índice de Rendimento Acadêmico (IRA)</h3>
+<h4 id="cartao_3">Cartão</h4>
+<p>"Como usuário, eu quero calcular o meu Índice de Rendimento Acadêmico (IRA) com base nas disciplinas já cursadas."</p>
+<h4 id="conversacao_3">Conversação</h4>
+<ul>
+<li>O IRA será calculado com base nas <strong>disciplinas já cursadas</strong> ou também pode considerar disciplinas em andamento?</li>
+<li>O sistema deve permitir a consulta a qualquer momento, mesmo sem incluir disciplinas em andamento?</li>
+</ul>
+<p><strong>Resposta:</strong> O IRA será calculado apenas com base nas <strong>disciplinas já cursadas</strong> e <strong>aprovadas</strong>, com o usuário podendo consultar a qualquer momento. Disciplinas em andamento não entram no cálculo.</p>
+<h4 id="confirmacao_3">Confirmação</h4>
+<ul>
+<li>O sistema calculará o <strong>Índice de Rendimento Acadêmico (IRA)</strong> com base nas disciplinas <strong>já cursadas</strong> e <strong>aprovadas</strong>.</li>
+</ul>
+<p><strong>(US04)</strong> Como usuário, eu quero calcular o meu Índice de Rendimento Acadêmico (IRA) com base nas disciplinas já cursadas.</p>
+<hr />
+<h3 id="historia-de-usuario-05-gerar-calendario-de-provas-e-avaliacoes">História de Usuário 05 - Gerar Calendário de Provas e Avaliações</h3>
+<h4 id="cartao_4">Cartão</h4>
+<p>"Como usuário, eu quero gerar um calendário para acompanhar as datas das provas e avaliações acadêmicas."</p>
+<h4 id="conversacao_4">Conversação</h4>
+<ul>
+<li>O usuário tem as <strong>datas das provas e das avaliações</strong> previamente ou o sistema irá puxá-las de algum lugar?</li>
+<li>O usuário pode <strong>adicionar ou editar</strong> as datas manualmente?</li>
+<li>E quanto às <strong>provas ou avaliações de reposição</strong> ou outras informações extras, como tratá-las?</li>
+</ul>
+<p><strong>Resposta:</strong> O sistema puxará as <strong>datas das provas e das avaliações</strong> diretamente do <strong>calendário acadêmico</strong> fornecido pela instituição, mas o usuário também poderá <strong>adicionar ou editar</strong> as datas. O sistema também permitirá o <strong>registro de provas e avaliações de reposição</strong>.</p>
+<h4 id="confirmacao_4">Confirmação</h4>
+<ul>
+<li>O usuário poderá <strong>gerar um calendário</strong> com as datas das provas, com informações fornecidas pelo <strong>calendário acadêmico</strong> ou inseridas manualmente pelo usuário.</li>
+</ul>
+<p><strong>(US05)</strong> Como usuário, eu quero gerar um calendário para acompanhar as datas das provas.</p>
+<hr />
+<h3 id="historia-de-usuario-06-integracao-com-google-calendar">História de Usuário 06 - Integração com Google Calendar</h3>
+<h4 id="cartao_5">Cartão</h4>
+<p>"Como usuário, eu quero integrar o calendário de provas com o meu Google Calendar."</p>
+<h4 id="conversacao_5">Conversação</h4>
+<ul>
+<li>O usuário pode <strong>sincronizar</strong> as datas diretamente com o <strong>Google Calendar</strong>? Ou ele precisa adicionar as provas manualmente no calendário do Google?</li>
+<li>O que acontece após a integração? O usuário recebe uma <strong>confirmação por e-mail</strong>?</li>
+</ul>
+<p><strong>Resposta:</strong> O usuário poderá <strong>integrar as datas</strong> das provas com o <strong>Google Calendar</strong>, e o sistema enviará uma <strong>confirmação por e-mail</strong> com o link para o calendário.</p>
+<h4 id="confirmacao_5">Confirmação</h4>
+<ul>
+<li>O usuário poderá <strong>integrar</strong> as datas das provas com o <strong>Google Calendar</strong>.</li>
+<li>O sistema enviará uma <strong>confirmação por e-mail</strong> com o link para o calendário integrado.</li>
+</ul>
+<p><strong>(US06)</strong> Como usuário, eu quero integrar o calendário de provas com o meu <strong>Google Calendar</strong>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.instant"], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>

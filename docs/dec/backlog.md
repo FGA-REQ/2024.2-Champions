@@ -22,3 +22,5 @@ O backlog serve como guia para o desenvolvimento do produto de software, garanti
 | Cálculo do Índice de Rendimento Acadêmico (IRA) | Sprint 2   | (US04)                     | Usuário      | Calcular o meu Índice de Rendimento Acadêmico (IRA) com base nas disciplinas cursadas | Monitorar meu desempenho acadêmico ao longo dos semestres              |
 | Calendário de Provas e Avaliações               | Sprint 2   | (US05)                     | Usuário      | Gerar um calendário para acompanhar as datas das provas e avaliações                  | Organizar minhas datas de provas e avaliações para melhor planejamento |
 | Integração com Google Calendar                  | Sprint 2   | (US06)                     | Usuário      | Integrar o calendário de provas com o meu Google Calendar                             | Ter um calendário sincronizado e organizado no Google Calendar         |
+| Salvar dados em link | Sprint 2 | (US07) | Usuário | Gerar um link para salvar meus dados e progresso | Acessá-los ou compartilhá-los facilmente de qualquer dispositivo. |
+

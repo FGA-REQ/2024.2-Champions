@@ -19,7 +19,7 @@ O MediaMestre é uma iniciativa pensada e projetada para alunos da Universidade 
 
 ## Equipe de Desenvolvimento
 
-<div align="center">
+<center>
 <table>
   <tr>
     <td align="center">
@@ -70,4 +70,6 @@ O MediaMestre é uma iniciativa pensada e projetada para alunos da Universidade 
         </sub>
       </a>
     </td>
-</div>
+  </tr>
+</table>
+</center>

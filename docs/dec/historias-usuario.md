@@ -131,3 +131,25 @@ As histórias de usuário são uma declaração de uma pequena funcionalidade qu
 - O sistema enviará uma **confirmação por e-mail** com o link para o calendário integrado.
 
 **(US06)** Como usuário, eu quero integrar o calendário de provas com o meu **Google Calendar**.
+
+---
+
+### História de Usuário 07 - Gerar Link para Salvar Dados
+
+#### Cartão
+
+"Como usuário, eu quero gerar um link para salvar meus dados e progresso, para que eu possa acessá-los ou compartilhá-los facilmente de qualquer dispositivo."
+
+#### Conversação 
+
+- Os dados salvos incluirão quais informações?
+- Como o usuário acessará os dados salvos?
+
+**Resposta:**  Os dados incluirão perfil do usuário, disciplinas escolhidas, notas calculadas, índice de rendimento acadêmico (IRA) e calendário de provas/avaliações. E, ao acessar o link, o sistema restaurará o estado salvo, permitindo que o usuário continue de onde parou ou utilize as informações compartilhadas.
+
+#### Confirmação
+
+- O usuário poderá **gerar** um link contendo informações sobre perfil, progresso, disciplinas, notas, IRA e calendário
+- Esse link será acessível em **qualquer** dispositivo e permitirá **compartilhamento** fácil.
+
+**(US07)** Como usuário, eu quero gerar um link para salvar meus dados e progresso, para que eu possa acessá-los ou compartilhá-los facilmente de qualquer dispositivo.
