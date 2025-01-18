@@ -72,8 +72,4 @@ O MediaMestre é uma iniciativa pensada e projetada para alunos da Universidade 
     </td>
   </tr>
 </table>
-<<<<<<< HEAD
 </center>
-=======
-</center>
->>>>>>> fd90a7e6a47e34d45621af77dcdc485b6f1a83d1
