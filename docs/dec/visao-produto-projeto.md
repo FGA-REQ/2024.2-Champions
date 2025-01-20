@@ -67,3 +67,31 @@ O projeto foi dividido em duas sprints, com metade das entregas estando na prime
 Cada sprint possui objetivos claros e prazos definidos, com as histórias de usuário já presentes no backlog. Todos os requisitos e funcionalidades foram construídos e estão prontos para serem implementados conforme o cronograma estabelecido.
 
 O **backlog** pode ser acessado [aqui](backlog.md).
+
+### 2.3 Matriz de comunicação
+
+Os meios de comunicação serão um fator importante para definir como a equipe irá trabalhar em conjunto. A fim de alinhar o trabalho de todos os integrantes do grupo e resolver os problemas de forma eficiente, usaremos o **Discord** para as chamadas e o **WhatsApp** para comunicação rápida.
+
+### 2.4 Gerenciamento de Riscos
+
+A gestão de riscos é uma parte essencial do desenvolvimento do projeto **MediaMestre**, especialmente em um contexto ágil, onde as funcionalidades do produto são entregues ao longo de várias sprints. A seguir, o gerenciamento de riscos foi alinhado com o **Backlog de Produto**, que é estruturado com histórias de usuário e funcionalidades a serem entregues.
+
+### Riscos Alinhados com o Backlog de Produto
+
+| **Risco** | **Probabilidade** | **Impacto** | **História de Usuário Relacionada** | **Estratégia de Mitigação** |
+|-----------|-------------------|-------------|-------------------------------------|----------------------------|
+| **Atraso no desenvolvimento das funcionalidades principais** | Alta | Alto | US01, US02, US03 | Utilizar a metodologia ágil com sprints bem definidas e acompanhamento contínuo do progresso. As funcionalidades mais críticas (como o cadastro e seleção de disciplinas) devem ser priorizadas. |
+| **Erros no cálculo de notas mínimas** | Média | Alto | US03 | Realizar testes de validação para garantir que o cálculo das notas esteja correto e validado com usuários antes de cada entrega. |
+| **Problemas na integração entre o frontend (Angular) e backend (FastAPI)** | Média | Alto | US01, US02, US03 | Garantir que as APIs sejam bem definidas desde o início e realizar testes de integração para validar a comunicação entre o backend e o frontend, especialmente nas funcionalidades de cálculo de notas e cadastro. |
+| **Resistência dos estudantes à nova ferramenta** | Baixa | Médio | US01, US02 | Realizar pesquisa de usabilidade nas fases iniciais de desenvolvimento para garantir que o produto atenda às necessidades dos usuários e incluir funcionalidades como o cálculo de menções e calendário de provas desde o início. |
+| **Falha na sincronização de dados (Google Calendar)** | Média | Alto | US06 | Implementar testes de integração com o Google Calendar e realizar validações com usuários para garantir a sincronização correta do calendário de provas. |
+| **Erros na visualização e geração do calendário de provas e avaliações** | Média | Médio | US05 | Testar a geração do calendário em diferentes cenários de uso, com validação das datas de provas e avaliações, antes de cada entrega. |
+| **Problemas de desempenho no cálculo do Índice de Rendimento Acadêmico (IRA)** | Baixa | Médio | US04 | Testar o cálculo do IRA com diferentes conjuntos de dados para garantir que o sistema tenha desempenho adequado mesmo com grandes volumes de informações. |
+| **Problemas na armazenagem e recuperação dos dados** | Baixa | Alto | US07 | Implementar práticas de backup regular e garantir que os dados possam ser salvos e recuperados de maneira eficiente. A funcionalidade de gerar links para salvar os dados será testada rigorosamente para garantir que o acesso seja fácil e seguro. |
+
+### 2.5 Monitoramento e Controle de Riscos
+
+- **Reuniões Semanais de Acompanhamento**: Durante as sprints, a equipe realizará reuniões semanais de acompanhamento para discutir os riscos e suas atualizações, com foco nas funcionalidades a serem entregues na sprint em andamento.
+- **Ferramentas de Acompanhamento de Tarefas**: A equipe utilizará ferramentas como o Trello ou Jira para monitoramento das tarefas, riscos identificados e progresso do desenvolvimento das histórias de usuário.
+- **Documentação de Riscos**: Todos os riscos serão documentados e atualizados no backlog, com suas ações de mitigação sendo revisadas conforme o andamento das entregas de cada sprint.
+- **Plano de Contingência**: Em casos de risco crítico, como falhas de integração ou cálculos incorretos, a equipe estará pronta para replanejar as entregas, realocar recursos ou ajustar funcionalidades, sempre alinhado com as necessidades dos usuários.
