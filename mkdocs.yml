@@ -17,7 +17,7 @@ nav:
   - Histórico de Versões: "historico/historico.md"
   - Regras de Negócio: "regras-negocio.md"
   - Declaração de Requisitos:
-      - Visão do Produto e do Projeto: 'visao-produto-projeto.md'
+      - Visão do Produto e do Projeto: 'dec/visao-produto-projeto.md'
       - Histórias de Usuário: "dec/historias-usuario.md"
       - Fluxo de Usuário: "dec/fluxo-usuario.md"
       - Declaração: "dec/declaracao-requisitos.md"
