@@ -163,7 +163,7 @@ O simulador de menções permitirá que o aluno insira notas de avaliações já
 ## Exemplos de Restrições:
 
 - **Cadastro de matérias**: Só pode ser realizado por usuários com permissão de administrador ou professor.
-- **Simulador do IRA**: Calcula o Índice de Rendimento Acadêmico com base nas notas de cada disciplina cadastrada para o aluno.
-- **Simulador de Menções**: Permite a inserção de notas para simular as menções SS, MS e MM.
-- **Google Agendas**: O sistema deve sincronizar com o Google Agendas e permitir a adição de datas de menções diretamente no calendário do usuário.
+- **Simulador do IRA**: Calcula o Índice de Rendimento Acadêmico com base nas notas de cada disciplina cadastrada pelo o aluno.
+- **Simulador de Menções**: Permite a inserção de notas para simular as menções SS, MS, MM, MI e II.
+- **Google Agendas**: O sistema deve sincronizar com o Google Agendas e permitir a adição de datas diretamente no calendário do usuário.
 - **Salvar dados em link**: Os dados devem ser salvos em um banco de dados seguro e acessível apenas por usuários permitidos.
