@@ -95,3 +95,57 @@ A gestão de riscos é uma parte essencial do desenvolvimento do projeto **Media
 - **Ferramentas de Acompanhamento de Tarefas**: A equipe utilizará ferramentas como o Trello ou Jira para monitoramento das tarefas, riscos identificados e progresso do desenvolvimento das histórias de usuário.
 - **Documentação de Riscos**: Todos os riscos serão documentados e atualizados no backlog, com suas ações de mitigação sendo revisadas conforme o andamento das entregas de cada sprint.
 - **Plano de Contingência**: Em casos de risco crítico, como falhas de integração ou cálculos incorretos, a equipe estará pronta para replanejar as entregas, realocar recursos ou ajustar funcionalidades, sempre alinhado com as necessidades dos usuários.
+
+### 2.6 Critérios de Replanejamento
+
+O replanejamento é um processo fundamental para garantir que o projeto **MediaMestre** se ajuste a imprevistos e mudanças ao longo do seu desenvolvimento. Caso ocorram falhas, atrasos ou alterações inesperadas no projeto, é necessário realizar um replanejamento para minimizar impactos negativos e assegurar que as entregas sejam feitas de acordo com as necessidades dos usuários e os objetivos do projeto.
+
+Abaixo estão os critérios de replanejamento que serão aplicados durante o desenvolvimento do **MediaMestre**:
+
+### 1. **Atraso nas Sprints**
+
+#### Critérios de Replanejamento:
+- **Se o progresso das histórias de usuário estiver abaixo do esperado**, será realizada uma análise da capacidade da equipe e dos fatores que causaram o atraso.
+- **Impacto nos prazos**: Caso a entrega das funcionalidades da sprint esteja comprometida, será necessário ajustar a duração da sprint ou redistribuir tarefas para garantir que as funcionalidades críticas sejam entregues primeiro.
+- **Plano de ação**: A equipe pode decidir cortar funcionalidades menos prioritárias ou realizar entregas parciais das funcionalidades principais, adiando as tarefas secundárias para sprints futuras.
+
+### 2. **Alterações de Requisitos ou Funcionalidades**
+
+#### Critérios de Replanejamento:
+- **Mudanças no escopo**: Se o cliente ou os usuários solicitarem modificações significativas nas funcionalidades ou requisitos das histórias de usuário (por exemplo, mudança na forma de cálculo ou ajustes no calendário de provas), será necessário reavaliar o impacto nas sprints seguintes.
+- **Priorização de funcionalidades**: As novas alterações serão analisadas e priorizadas no backlog. Funcionalidades essenciais para o MVP (Produto Mínimo Viável) devem ser priorizadas, enquanto outras podem ser adiantadas para futuras sprints.
+- **Validação com stakeholders**: O cliente (Carlos Eduardo) será envolvido na definição das prioridades e no ajuste do cronograma conforme novas solicitações.
+
+### 3. **Identificação de Riscos Críticos (Ex: Falhas de Integração, Erros de Cálculo)**
+
+#### Critérios de Replanejamento:
+- **Riscos críticos** que impactem diretamente a funcionalidade principal (como falhas nos cálculos de notas ou problemas de integração com o Google Calendar) exigem ações rápidas para correção.
+- **Plano de contingência**: Caso um risco seja identificado como crítico, a equipe precisará replanejar as sprints para realizar ajustes urgentes e garantir que a funcionalidade funcione corretamente. Isso pode envolver:
+  - Adiamento de funcionalidades secundárias.
+  - Realocação de recursos técnicos para corrigir problemas mais graves.
+  - Redefinição do cronograma das entregas para corrigir falhas imediatamente.
+
+### 4. **Mudança na Disponibilidade ou Capacidade da Equipe**
+
+#### Critérios de Replanejamento:
+- **Se algum membro da equipe se ausentar ou houver uma redução na capacidade técnica**, o trabalho será redistribuído entre os membros restantes.
+- **Priorizar as funcionalidades mais críticas**: A equipe pode precisar de mais tempo para concluir as funcionalidades essenciais do produto, como a funcionalidade de cálculo de menções (US03) ou a criação do calendário de provas (US05).
+- **Ajuste do cronograma**: Caso o trabalho não possa ser distribuído igualmente, a duração das sprints poderá ser ajustada ou tarefas poderão ser replanejadas para sprints futuras.
+
+### 5. **Feedback de Usuários Durante o Desenvolvimento**
+
+#### Critérios de Replanejamento:
+- **Caso o feedback dos usuários (estudantes da UNB) revele que as funcionalidades entregues não estão atendendo às expectativas** (por exemplo, interface confusa ou cálculos errados), o projeto precisará ser replanejado para incluir melhorias.
+- **Ajustes nas funcionalidades de maior impacto**: As funcionalidades que geraram maior insatisfação serão reavaliadas e o cronograma será ajustado para incluir melhorias de usabilidade ou correções de bugs.
+- **Revisão de funcionalidades e priorização**: Funcionalidades que têm um impacto menor no dia a dia dos usuários podem ser adiadas para sprints seguintes, garantindo que os principais problemas sejam resolvidos o mais rápido possível.
+
+### 6. **Problemas de Desempenho (Ex: Cálculos Lentos ou Problemas de Armazenamento)**
+
+#### Critérios de Replanejamento:
+- **Se o desempenho do sistema for comprometido** (como cálculos muito lentos ou falhas na geração do calendário), o replanejamento incluirá uma revisão das funcionalidades afetadas.
+- **Ajustes de arquitetura**: Pode ser necessário revisar a arquitetura do sistema (como otimizar consultas ao banco de dados ou melhorar a integração com o Google Calendar) e redistribuir tarefas dentro da sprint para corrigir o problema.
+- **Foco na performance**: As funcionalidades relacionadas ao desempenho, como o cálculo do IRA (US04) ou a sincronização com o Google Calendar (US06), terão prioridade para garantir a estabilidade do sistema.
+
+A equipe realizará **reuniões semanais** de acompanhamento para revisar o progresso do projeto e identificar quaisquer problemas que possam exigir replanejamento. O backlog será atualizado conforme as mudanças e ajustes necessários, e as prioridades de desenvolvimento serão ajustadas com base nos critérios descritos acima.
+
+A **flexibilidade** e o **planejamento iterativo** garantem que o **MediaMestre** seja entregue de acordo com as expectativas dos usuários e atenda aos objetivos definidos, mesmo diante de mudanças ou imprevistos no decorrer do projeto.
