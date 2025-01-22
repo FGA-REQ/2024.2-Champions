@@ -101,4 +101,4 @@
 Rendimento Acadêmico (IRA).
 ## Simulador de Menções
 ### Requisito Relacionado:
-- Permitir um cálculo automatizado das menções necessárias para aprovação nas - - disciplinas, evitando erros humanos e proporcionando mais segurança ao aluno.
+- Permitir um cálculo automatizado das menções necessárias para aprovação nas disciplinas, evitando erros humanos e proporcionando mais segurança ao aluno.
