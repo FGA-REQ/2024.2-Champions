@@ -73,37 +73,32 @@
 ### Requisito Relacionado:
 - Permitir um cálculo automatizado das menções necessárias para aprovação nas disciplinas, evitando erros humanos e proporcionando mais segurança ao aluno.
 
-Regras de Geração de Alertas
-Alerta de Proximidade de Avaliação
-Requisito Relacionado:
+## Regras de Geração de Alertas
+- Alerta de Proximidade de Avaliação
+### Requisito Relacionado:
+- Facilitar o acompanhamento das datas de avaliações e atividades, centralizando essas informações em um único lugar acessível.
 
-Facilitar o acompanhamento das datas de avaliações e atividades, centralizando essas informações em um único lugar acessível.
-Alerta de Nota Inferior a 5
-Requisito Relacionado:
+## Alerta de Nota Inferior a 5
+### Requisito Relacionado:
+- Instruir o aluno no planejamento de suas atividades acadêmicas, ajudando-o a organizar melhor seu tempo e a gerenciar sua carga de estudos de forma eficaz.
 
-Instruir o aluno no planejamento de suas atividades acadêmicas, ajudando-o a organizar melhor seu tempo e a gerenciar sua carga de estudos de forma eficaz.
-Alerta de Frequência Crítica
-Requisito Relacionado:
+## Alerta de Frequência Crítica
+### Requisito Relacionado:
+- Facilitar o acompanhamento da frequência do estudante e alertar sobre o impacto no rendimento acadêmico.
 
-Facilitar o acompanhamento da frequência do estudante e alertar sobre o impacto no rendimento acadêmico.
-Alerta de Peso em Avaliações
-Requisito Relacionado:
+## Alerta de Peso em Avaliações
+### Requisito Relacionado:
+- Permitir que o estudante calcule de forma automatizada as menções necessárias, considerando pesos nas avaliações.
 
-Permitir que o estudante calcule de forma automatizada as menções necessárias, considerando pesos nas avaliações.
-Alerta de Ausência de Dados
-Requisito Relacionado:
+## Alerta de Ausência de Dados
+### Requisito Relacionado:
+- Facilitar o acompanhamento das notas cadastradas e alertar sobre a falta de - - informações para um cálculo preciso.
 
-Facilitar o acompanhamento das notas cadastradas e alertar sobre a falta de informações para um cálculo preciso.
-Simulador de IRA
-Requisito Relacionado:
+## Simulador de IRA
+### Requisito Relacionado:
+- Otimizar a gestão do rendimento acadêmico, permitindo o cálculo do Índice de 
 
-Otimizar a gestão do rendimento acadêmico, permitindo o cálculo do Índice de Rendimento Acadêmico (IRA).
-Simulador de Menções
-Requisito Relacionado:
-
-Permitir um cálculo automatizado das menções necessárias para aprovação nas disciplinas, evitando erros humanos e proporcionando mais segurança ao aluno.
-Regras de Diretriz
-Exemplos de alertas relacionados às regras de diretriz podem ser vinculados a vários requisitos, como:
-
-Otimizar a gestão do rendimento acadêmico.
-Facilitar o acompanhamento das datas de avaliações e atividades.
+Rendimento Acadêmico (IRA).
+## Simulador de Menções
+### Requisito Relacionado:
+- Permitir um cálculo automatizado das menções necessárias para aprovação nas - - disciplinas, evitando erros humanos e proporcionando mais segurança ao aluno.
