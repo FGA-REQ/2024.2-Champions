@@ -40,5 +40,5 @@ pip install -r requirements.txt
 ## Para rodar a aplicação
 
 ```
-uvicorn app.main:app --reload
+uvicorn api.main:app --reload
 ```
