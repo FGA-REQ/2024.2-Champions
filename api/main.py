@@ -1,5 +1,8 @@
 from fastapi import FastAPI
 from .routes import users, courses
+from api.infra.sqlalchemy.config.db import create_db
+
+create_db()
 
 app = FastAPI()
 

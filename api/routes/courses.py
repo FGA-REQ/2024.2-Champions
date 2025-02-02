@@ -9,7 +9,7 @@ router = APIRouter(
   tags=['Courses Routes']
 )
 
-@router.get("/")
+@router.get("/", status_code=status.HTTP_200_OK)
 def get_courses():
   return { "Message": "Hello from Courses Router!"}
 
