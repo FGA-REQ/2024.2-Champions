@@ -5,4 +5,4 @@ class Course(Base):
   __tablename__ = 'Course'
   
   course_name = Column(String, primary_key=True)
-
+  degree_level = Column(String)
