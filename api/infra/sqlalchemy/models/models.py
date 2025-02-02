@@ -1,22 +1,8 @@
-from pydantic import BaseModel, EmailStr
-from typing import Optional, List
+from sqlalchemy import Column, Integer, String
+from api.infra.sqlalchemy.config.db import Base
 
-# Course
-class Course(BaseModel):
-  id: Optional[str] = None
-  course_name: str
+class Course(Base):
+  __tablename__ = 'Course'
+  
+  course_name = Column(String, primary_key=True)
 
-# Discipline
-class Discipline(BaseModel):
-  id: Optional[str] = None
-  discipline_code: str 
-  discipline_name: str 
-  discipline_class: str
-  discipline_course: List[Course]
-
-# User
-class User(BaseModel):
-  id: Optional[str] = None
-  email: EmailStr
-  password: str
-  user_disciplines: List[Discipline]
