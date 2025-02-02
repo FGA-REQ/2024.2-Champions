@@ -1,0 +1,5 @@
+api
+alembic
+venv
+apimediamestre.db
+alembic.ini
