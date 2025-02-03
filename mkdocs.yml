@@ -22,6 +22,7 @@ nav:
   - Fluxo de Usuário: "fluxo-usuario.md"
   - Declaração: "declaracao-requisitos.md"
   - Backlog do Produto: "backlog.md"
+  - MVP: "mvp.md"
   - Teste: "teste.md"
 
 extra_css:

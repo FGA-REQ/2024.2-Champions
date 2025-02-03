@@ -4,4 +4,4 @@ A notação BPMN é utilizada para modelar processos de negócios, o que permite
 
 ### Diagrama BPMN do Processo de Requisitos MediaMestre
 
-![Diagrama BPMN do Processo de Requisitos do projeto MediaMestre](../img/bpmn-processo-requisitos.png)
+![Diagrama BPMN do Processo de Requisitos do projeto MediaMestre](img/bpmn-processo-requisitos.png)
