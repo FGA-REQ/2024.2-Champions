@@ -10,12 +10,6 @@
   <body>
     <div class="login-container">
       <h2>Login</h2>
-      {% if message %}
-      <div class="message">
-        <p>{{ message }}</p>
-      </div>
-      {% endif %}
-
       <form method="post" action="/login">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />
@@ -28,6 +22,9 @@
       <br />
       <div class="register-link">
         Não tem cadastro? <a href="/cadastro">Cadastre-se aqui</a>
+      </div>
+      <div class="register-link">
+        Esqueceu sua senha? <a href="/change-password">Troque aqui</a>
       </div>
     </div>
   </body>

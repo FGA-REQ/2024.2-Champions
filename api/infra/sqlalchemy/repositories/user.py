@@ -40,7 +40,26 @@ class UserRepository():
     )
     self.db.execute(update_statement)
     self.db.commit()
-  
+
+  def update_password(self, email: str, new_password: str):
+    user = self.db.query(models.User).filter(models.User.email == email).first()
+    
+    if not user: 
+      return
+
+    update_statement = update(models.User).where(
+      models.User.email == email
+    ).values(
+      password = new_password
+    )
+
+    self.db.execute(update_statement)
+    self.db.commit()
+
+    updated_user = self.db.query(models.User).filter(models.User.email == email).first()
+
+    return updated_user
+
   def remove(self, email: str):
     delete_statement = delete(models.User).where(
       models.User.email == email

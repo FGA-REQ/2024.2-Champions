@@ -24,18 +24,27 @@ def update_password(email:str, user: User, db: Session = Depends(get_db)):
 def delete_user(email: str, db: Session = Depends(get_db)):
   return UserRepository(db).remove(email)
 
+# Login page
 @router.get("/login", response_class=HTMLResponse)
 async def login(request: Request, message: str = None):
     return templates.TemplateResponse("login.html", {"request": request})
 
+# Register page
 @router.get('/cadastro', response_class=HTMLResponse)
 async def cadastro(request: Request):
     return templates.TemplateResponse('cadastro.html', {'request': request})
 
+# Change password page
+@router.get('/change-password', response_class=HTMLResponse)
+async def cadastro(request: Request):
+    return templates.TemplateResponse('change-password.html', {'request': request})
+
+# Dashboard page
 @router.get("/dashboard", response_class=HTMLResponse)
 async def dashboard(request: Request):
     return templates.TemplateResponse("dashboard.html", {"request": request})
 
+# Login route 
 @router.post("/login")
 async def login_post(
     email: str = Form(...),
@@ -52,6 +61,7 @@ async def login_post(
 
     return RedirectResponse("/dashboard", status_code=status.HTTP_303_SEE_OTHER)
 
+# Register route
 @router.post('/cadastro')
 async def cadastro_post(
     email: str = Form(...),
@@ -71,3 +81,29 @@ async def cadastro_post(
     UserRepository(db).create_user(email, hashed_password)
 
     return RedirectResponse('/login?message=Cadastro+realizado+com+sucesso!', status_code=status.HTTP_303_SEE_OTHER)
+
+# Change password route 
+@router.post('/change-password')
+async def change_password(
+    email: str = Form(...),
+    new_password: str = Form(...),
+    confirm_new_password: str = Form(...),
+    db: Session = Depends(get_db)
+):
+    if new_password != confirm_new_password:
+        raise HTTPException(status_code=400, detail='As senhas não coincidem!')
+
+    user_repo = UserRepository(db)
+    user = user_repo.get_user_by_email(email)
+
+    if not user:
+        raise HTTPException(status_code=404, detail='Usuário não encontrado!')
+
+    hashed_new_password = hash_provider.generate_hash(new_password)
+
+    user_updated = user_repo.update_password(email, hashed_new_password)
+
+    if not user_updated:
+        raise HTTPException(status_code=500, detail='Erro ao atualizar a senha!')
+
+    return RedirectResponse('/login', status_code=303)
