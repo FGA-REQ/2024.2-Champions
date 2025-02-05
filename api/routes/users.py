@@ -6,6 +6,7 @@ from api.infra.sqlalchemy.config.db import get_db
 from api.infra.sqlalchemy.repositories.user import UserRepository
 from api.infra.providers import hash_provider
 from api.schemas.schemas import User
+import urllib.parse
 
 router = APIRouter(
     tags = ["Rotas de Autenticação de Usuário"] 
@@ -54,10 +55,12 @@ async def login_post(
     user = UserRepository(db).get_user_by_email(email)
 
     if not user:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email ou senha incorretos!")
+        # raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email ou senha incorretos!")
+        return RedirectResponse(f'/login?message=Email ou senha incorretos!',status_code=status.HTTP_303_SEE_OTHER)
 
     if not hash_provider.verify_hash(password, user.password):
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Senha incorreta!")
+        # raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Senha incorreta!")
+        return RedirectResponse(f'/login?message=Senha incorreta!',status_code=status.HTTP_303_SEE_OTHER)
 
     return RedirectResponse("/dashboard", status_code=status.HTTP_303_SEE_OTHER)
 
