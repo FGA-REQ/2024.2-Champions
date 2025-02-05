@@ -9,6 +9,13 @@
   <body>
     <div class="login-container">
       <h2>Cadastro</h2>
+
+      {% if request.query_params.get('message') %}
+      <div class="error-message">
+        <p>{{ request.query_params.get('message') }}</p>
+      </div>
+      {% endif %}
+
       <form method="post" action="/cadastro">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />

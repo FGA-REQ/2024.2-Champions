@@ -73,11 +73,14 @@ async def cadastro_post(
     db: Session = Depends(get_db)
 ):
     if password != confirm_password:
-      raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='As senhas nao coindicem!')
+#      raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail='As senhas nao coindicem!')
+        return RedirectResponse(f'/cadastro?message=As senhas não coindicem!', status_code=status.HTTP_303_SEE_OTHER)
+    
 
     user = UserRepository(db).get_user_by_email(email)
     if user:
-       raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email já cadastrado!")
+    #    raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Email já cadastrado!")
+        return RedirectResponse(f'/cadastro?message=Email já cadastrado!', status_code=status.HTTP_303_SEE_OTHER)
     
     hashed_password = hash_provider.generate_hash(password)
 
@@ -94,13 +97,15 @@ async def change_password(
     db: Session = Depends(get_db)
 ):
     if new_password != confirm_new_password:
-        raise HTTPException(status_code=400, detail='As senhas não coincidem!')
-
+        #raise HTTPException(status_code=400, detail='As senhas não coincidem!')
+        return RedirectResponse(f'/change-password?message=As senhas não coincidem!', status_code=status.HTTP_303_SEE_OTHER)
+    
     user_repo = UserRepository(db)
     user = user_repo.get_user_by_email(email)
 
     if not user:
-        raise HTTPException(status_code=404, detail='Usuário não encontrado!')
+        #raise HTTPException(status_code=404, detail='Usuário não encontrado!')
+        return RedirectResponse(f'/change-password?message=Usuário não encontrado!', status_code=status.HTTP_303_SEE_OTHER)
 
     hashed_new_password = hash_provider.generate_hash(new_password)
 
