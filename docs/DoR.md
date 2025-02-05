@@ -4,7 +4,7 @@
 
 ## US01
 
-### Critérios de Aceitação definid os:
+### Critérios de Aceitação definidos:
 
 - Campos obrigatórios: e-mail, senha.
 
@@ -114,7 +114,7 @@ Design da tela com opção de inserção de e-mail e senha.
 
 ### Critérios de Aceitação definidos:
 
-- Sincronização automática das datas do calendário acadêmico.
+- Integração das datas do calendário acadêmico no Google Calendar.
 
 - Confirmação por e-mail com link do Google Calendar.
 
