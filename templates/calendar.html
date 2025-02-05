@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendário de Tarefas</title>
+    <link rel="stylesheet" href="../static/style.css" />
+  </head>
+  <body>
+    <div class="calendar-container">
+      <h2>Calendário de Tarefas</h2>
+      <p>Aqui você pode visualizar e adicionar suas tarefas diárias.</p>
+
+      <div class="calendar-header">
+        <!-- Botões de navegação de mês -->
+        <button id="prev-month" onclick="navigateMonth(-1)">Anterior</button>
+        <span id="month-name"></span>
+        <button id="next-month" onclick="navigateMonth(1)">Próximo</button>
+      </div>
+
+      <div id="calendar" class="calendar"></div>
+
+      <div id="task-container" class="task-container" style="display: none">
+        <h3>Tarefa para o dia <span id="task-day"></span></h3>
+        <form id="task-form" class="task-form" onsubmit="addTask(event)">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="Digite sua tarefa..."
+            required
+          />
+          <button type="submit">Adicionar</button>
+        </form>
+        <div id="task-list" class="task-list"></div>
+      </div>
+
+      <!-- Link para voltar para o dashboard, colocado abaixo de todo o conteúdo -->
+      <a href="/dashboard" class="back-to-dashboard">Voltar para o Dashboard</a>
+    </div>
+    <script src="../static/calendar-script.js"></script>
+  </body>
+</html>

@@ -45,6 +45,10 @@ async def cadastro(request: Request):
 async def dashboard(request: Request):
     return templates.TemplateResponse("dashboard.html", {"request": request})
 
+@router.get("/calendar", response_class=HTMLResponse)
+async def calendar_page(request: Request):
+    return templates.TemplateResponse("calendar.html", {"request": request})
+
 # Login route 
 @router.post("/login")
 async def login_post(
