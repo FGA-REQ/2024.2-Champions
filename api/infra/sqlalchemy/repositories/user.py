@@ -25,5 +25,5 @@ class UserRepository():
   def get(self):
     ... 
   
-  def remove(self):
+  def remove(self,):
     ...
