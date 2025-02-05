@@ -1,41 +1,44 @@
+# schemas.py
+
 from pydantic import BaseModel, EmailStr
 from typing import Optional, List
 
 # Course
 class Course(BaseModel):
-  course_name: str
+    course_name: str
 
-  class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True
 
 # Discipline
 class Discipline(BaseModel):
-  discipline_code: str 
-  discipline_name: str 
-  # discipline_course: List[Course]
+    discipline_code: str 
+    discipline_name: str 
+    # Se desejar, pode incluir a lista de usuários matriculados:
+    users: Optional[List["UserSimple"]] = []
 
-  class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True
 
 # User
 class User(BaseModel):
-  email: EmailStr
-  password: str
-  # user_disciplines: List[Discipline]
+    email: EmailStr
+    password: str
+    # Se desejar, pode incluir a lista de disciplinas em que o usuário está matriculado:
+    disciplines: Optional[List[Discipline]] = []
 
-  class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True
 
 class UserSimple(BaseModel):
-  email: EmailStr
+    email: EmailStr
 
-  class Config:
-    orm_mode = True
+    class Config:
+        orm_mode = True
 
 class UserCreate(BaseModel):
   ...
 # Login 
-
 class LoginData(BaseModel):
-  email: EmailStr
-  password: str
+    email: EmailStr
+    password: str

@@ -1,12 +1,14 @@
-from sqlalchemy import select, update, delete
+from sqlalchemy import select, update, delete, insert
 from sqlalchemy.orm import Session
 from api.schemas import schemas
 from api.infra.sqlalchemy.models import models
 
 class UserRepository():
+
   def __init__(self, db: Session):
     self.db = db 
   
+
   def create(self, course: schemas.User):
     db_user = models.User(
       email = course.email,
@@ -31,7 +33,7 @@ class UserRepository():
   
   def get_user_by_email(self, user_email: str) -> schemas.User:
     return self.db.query(models.User).filter(models.User.email == user_email).first()
-
+  
   def update(self, email: str, user = schemas.User):
     update_statement = update(models.User).where(
       models.User.email == email
