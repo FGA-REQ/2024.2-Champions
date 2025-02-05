@@ -22,7 +22,7 @@ class UserRepository():
     users = self.db.execute(statement).scalars().all()
     return users 
   
-  def get_user_by_email(self, user_email: str):
+  def get_user_by_email(self, user_email: str) -> schemas.User:
     return self.db.query(models.User).filter(models.User.email == user_email).first()
 
   def update(self, email: str, user = schemas.User):

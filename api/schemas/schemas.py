@@ -25,3 +25,15 @@ class User(BaseModel):
 
   class Config:
     orm_mode = True
+
+class UserSimple(BaseModel):
+  email: EmailStr
+
+  class Config:
+    orm_mode = True
+
+# Login 
+
+class LoginData(BaseModel):
+  email: EmailStr
+  password: str

@@ -28,6 +28,7 @@ app.add_middleware(
 # CSS PADRÃO
 app.mount("/static", StaticFiles(directory=os.path.join(os.path.dirname(__file__), '../static')), name="static")
 
+templates = Jinja2Templates(directory='templates')
 
 app.include_router(users.router)
 app.include_router(courses.router)
