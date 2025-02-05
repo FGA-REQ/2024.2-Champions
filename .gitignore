@@ -1,6 +1,2 @@
 venv
 __pycache__
-apimediamestre.db
-alembic.ini
-alembic
-docs
