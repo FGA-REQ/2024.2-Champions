@@ -30,19 +30,23 @@ app.mount("/static", StaticFiles(directory=os.path.join(os.path.dirname(__file__
 
 templates = Jinja2Templates(directory='templates')
 
+@app.get('/')
+async def root():
+  return RedirectResponse(url='/login')
+
 app.include_router(users.router)
 app.include_router(courses.router)
 app.include_router(disciplinas.router)
 app.include_router(cadastros.router)
 
-@app.get('/', response_class=HTMLResponse)
-async def root(request: Request):
-    return RedirectResponse('/login', status_code=status.HTTP_303_SEE_OTHER)
+# @app.get('/', response_class=HTMLResponse)
+# async def root(request: Request):
+#     return RedirectResponse('/login', status_code=status.HTTP_303_SEE_OTHER)
 
-@app.get('/login', response_class=HTMLResponse)
-async def login(request: Request):
-    return templates.TemplateResponse('login.html', { 'request': request })
+# @app.get('/login', response_class=HTMLResponse)
+# async def login(request: Request):
+#     return templates.TemplateResponse('login.html', { 'request': request })
 
-@app.get('/cadastro', response_class=HTMLResponse)
-async def cadastro(request: Request):
-    return templates.TemplateResponse('cadastro.html', { 'request': request})
+# @app.get('/cadastro', response_class=HTMLResponse)
+# async def cadastro(request: Request):
+#     return templates.TemplateResponse('cadastro.html', { 'request': request})

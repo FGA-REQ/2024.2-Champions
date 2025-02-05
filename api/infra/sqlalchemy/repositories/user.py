@@ -17,6 +17,13 @@ class UserRepository():
     self.db.refresh(db_user)
     return db_user
   
+  def create_user(self, new_email: str, new_password: str):
+    user = models.User(email=new_email, password=new_password)
+    self.db.add(user)
+    self.db.commit()
+    self.db.refresh(user)
+    return user
+  
   def list_all(self):
     statement = select(models.User)
     users = self.db.execute(statement).scalars().all()

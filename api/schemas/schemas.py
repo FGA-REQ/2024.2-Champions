@@ -32,6 +32,8 @@ class UserSimple(BaseModel):
   class Config:
     orm_mode = True
 
+class UserCreate(BaseModel):
+  ...
 # Login 
 
 class LoginData(BaseModel):
