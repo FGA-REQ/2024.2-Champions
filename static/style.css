@@ -77,73 +77,95 @@ button:hover {
 {calendario}
 
 
-/* Estilo específico para o FullCalendar */
-#calendar {
-  max-width: 100%; /* Permite que o calendário se ajuste ao container pai */
-  margin: 20px auto;
-  padding: 10px;
-  background-color: #fff; /* Garante fundo branco para o calendário */
+body {
+  font-family: sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.calendar-container {
+  width: 80%;
+  max-width: 100%;
+  background-color: #fff;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Estilo para os dias do calendário */
-.fc-daygrid-day {
-  min-height: 100px; /* Garante altura mínima para cada dia */
-  border: 1px solid #ddd; /* Borda leve para separar os dias */
-  background-color: #fff;
+#calendar {
+  width: 100%;
+  height: 80vh;
 }
 
-/* Ajuste do cabeçalho do calendário */
-.fc-toolbar-title {
-  font-size: 1.5rem; /* Tamanho maior para o título do mês */
-  color: #333; /* Cor do título */
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-/* Botões de navegação do FullCalendar */
-.fc-button {
+button {
+  padding: 10px;
   background-color: #007bff;
+  color: white;
   border: none;
-  color: #fff;
-  padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.fc-button:hover {
+button:hover {
   background-color: #0056b3;
 }
 
-.fc-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-/* Estilo para eventos no calendário */
-.fc-event {
-  background-color: #28a745; /* Cor verde para eventos */
-  color: #fff;
-  border: none;
-  padding: 5px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.fc-event:hover {
-  background-color: #218838; /* Tom mais escuro ao passar o mouse */
-}
-
-/* Ajuste de layout para visualização mensal */
-.fc-daygrid {
-  border: 1px solid #ddd;
+.task-container {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
   border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto;
 }
 
-/* Texto do dia */
-.fc-daygrid-day-number {
-  color: #007bff; /* Azul para números dos dias */
-  font-weight: bold;
+.task-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
+
+.task-form input[type="text"] {
+  width: 80%;
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.task-list {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+.back-to-dashboard {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.back-to-dashboard:hover {
+  background-color: #0056b3;
+}
+
 
 
 {task}
