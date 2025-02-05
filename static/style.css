@@ -73,100 +73,80 @@ button:hover {
   text-decoration: underline;
 }
 
-.calendar-container {
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto;
-  text-align: center;
+
+{calendario}
+
+
+/* Estilo específico para o FullCalendar */
+#calendar {
+  max-width: 100%; /* Permite que o calendário se ajuste ao container pai */
+  margin: 20px auto;
+  padding: 10px;
+  background-color: #fff; /* Garante fundo branco para o calendário */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  color: #333;
+/* Estilo para os dias do calendário */
+.fc-daygrid-day {
+  min-height: 100px; /* Garante altura mínima para cada dia */
+  border: 1px solid #ddd; /* Borda leve para separar os dias */
+  background-color: #fff;
 }
 
-.calendar-header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+/* Ajuste do cabeçalho do calendário */
+.fc-toolbar-title {
+  font-size: 1.5rem; /* Tamanho maior para o título do mês */
+  color: #333; /* Cor do título */
 }
 
-.calendar-header button {
-  padding: 8px 16px;
-  margin: 0 10px;
+/* Botões de navegação do FullCalendar */
+.fc-button {
   background-color: #007bff;
-  color: #fff;
   border: none;
+  color: #fff;
+  padding: 5px 10px;
   border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
 }
 
-.calendar-header button:disabled {
+.fc-button:hover {
+  background-color: #0056b3;
+}
+
+.fc-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
-.calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-gap: 10px;
-  justify-content: center;
-  margin-top: 20px;
-  padding: 0 20px;
-}
-
-.calendar-day {
-  position: relative;
-  padding: 15px;
-  border: 1px solid #ddd;
-  background-color: #fff;
-  color: #333;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100px;
-  transition: background-color 0.3s ease, box-shadow 0.2s ease;
-}
-
-.calendar-day:hover {
-  background-color: #f0f0f0;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.calendar-day.past-day {
-  background-color: #d3d3d3; /* Dias passados com cor cinza */
-  color: #888;
-  pointer-events: none;
-}
-
-.calendar-day.empty {
-  background-color: #f9f9f9;
-  cursor: default;
-}
-
-.calendar-day .day-number {
-  font-weight: bold;
-  font-size: 16px;
-  color: #007bff;
-}
-
-.calendar-day .tasks {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #333;
-}
-
-.calendar-day .tasks .task-item {
-  background-color: #f0f0f0;
+/* Estilo para eventos no calendário */
+.fc-event {
+  background-color: #28a745; /* Cor verde para eventos */
+  color: #fff;
+  border: none;
   padding: 5px;
-  margin-bottom: 5px;
   border-radius: 4px;
-  border: 1px solid #ddd;
+  cursor: pointer;
 }
+
+.fc-event:hover {
+  background-color: #218838; /* Tom mais escuro ao passar o mouse */
+}
+
+/* Ajuste de layout para visualização mensal */
+.fc-daygrid {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+/* Texto do dia */
+.fc-daygrid-day-number {
+  color: #007bff; /* Azul para números dos dias */
+  font-weight: bold;
+}
+
+
+{task}
 
 .task-form {
   margin-top: 20px;

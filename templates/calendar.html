@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calendário de Tarefas</title>
-    
-    <!-- Estilo customizado -->
-    <link rel="stylesheet" href="../static/style.css" />
-
+ 
     <!-- FullCalendar -->
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
@@ -19,9 +16,9 @@
 
         <!-- Navegação de mês -->
         <div class="calendar-header">
-            <button id="prev-month" onclick="navigateMonth(-1)">Anterior</button>
+            <button id="prev-month">Anterior</button>
             <span id="month-name"></span>
-            <button id="next-month" onclick="navigateMonth(1)">Próximo</button>
+            <button id="next-month">Próximo</button>
         </div>
 
         <!-- FullCalendar -->
@@ -30,7 +27,7 @@
         <!-- Container para adicionar tarefas -->
         <div id="task-container" class="task-container" style="display: none">
             <h3>Tarefa para o dia <span id="task-day"></span></h3>
-            <form id="task-form" class="task-form" onsubmit="addTask(event)">
+            <form id="task-form" class="task-form">
                 <input type="text" id="task-input" placeholder="Digite sua tarefa..." required />
                 <button type="submit">Adicionar</button>
             </form>
@@ -43,18 +40,38 @@
         </button>
     </div>
 
-    <!-- Script Customizado -->
-    <script src="../static/calendar-script.js"></script>
-
     <!-- Script FullCalendar -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
+            var taskContainer = document.getElementById('task-container');
+            var taskDay = document.getElementById('task-day');
+
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
-                locale: 'pt-br' // Define o idioma como português
+                locale: 'pt-br',
+                dateClick: function(info) {
+                    // Exibe o container de tarefas quando um dia é clicado
+                    taskDay.textContent = info.dateStr; // Define a data clicada
+                    taskContainer.style.display = 'block';
+                }
             });
+
             calendar.render();
+        });
+
+        // Adiciona evento ao formulário de tarefas
+        document.getElementById('task-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var taskInput = document.getElementById('task-input');
+            var taskList = document.getElementById('task-list');
+
+            if (taskInput.value.trim() !== "") {
+                var taskItem = document.createElement('div');
+                taskItem.textContent = taskInput.value;
+                taskList.appendChild(taskItem);
+                taskInput.value = "";
+            }
         });
     </script>
 </body>
