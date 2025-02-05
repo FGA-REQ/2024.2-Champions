@@ -10,3 +10,4 @@
 |  1.7   | 02/02/2025 |                                                                           Adicionando Diagrama de Ishikawa na visao do produto e do projeto                                                                           |     Lucas Bottino     |
 |  1.8   | 02/02/2025 |                                                                                    Atualizando backlog do produto para padrao SAFe                                                                                    |     Lucas Bottino     |
 |  1.9   | 02/02/2025 |                                                                                                   Adicionando o MVP                                                                                                   |     Lucas Bottino     |
+|  1.10  | 04/02/2025 | Adição de Definition of Ready (DoR) e Definition of Done (DoD) na documentação | Arthur Fonseca |
