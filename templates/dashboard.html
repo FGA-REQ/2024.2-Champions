@@ -4,12 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
-    <link rel="stylesheet" href="/static/style.css" />
+    <link rel="stylesheet" href="../static/style.css" />
   </head>
   <body>
     <div class="login-container">
-      <h2>Bem-vindo, {{ email }}!</h2>
-      <p>Você está logado no seu dashboard.</p>
+      <h2>Bem-vindo!</h2>
+      <p class="welcome-text">Você está logado no seu dashboard.</p>
+      <!-- Botão Adicionar Disciplina -->
+      <button class="adicionar-disciplina" id="btnAdicionarDisciplina">
+        Adicionar Disciplina
+      </button>
     </div>
+    <script src="/static/script.js"></script>
   </body>
 </html>
