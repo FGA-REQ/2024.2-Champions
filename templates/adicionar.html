@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Média Mestre- Adicionar Disciplinas</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background: #ffffff;
+            width: 50%;
+            margin: 50px auto;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 2px solid #526cfe;
+        }
+        h1 {
+            color: #526cfe;
+        }
+        label {
+            font-size: 16px;
+            display: block;
+            margin: 10px 0 5px;
+            color: #526cfe;
+        }
+        input, select {
+            width: 90%;
+            padding: 10px;
+            border: 1px solid #526cfe;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #526cfe;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #4052c4;
+        }
+        .disciplinas-escolhidas {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #526cfe;
+            border-radius: 5px;
+            text-align: left;
+        }
+    </style>
+    <script>
+        function adicionarDisciplina() {
+            const select = document.getElementById("disciplinas");
+            const escolhidas = document.getElementById("disciplinas-escolhidas");
+            
+            if (select.value) {
+                const option = document.createElement("p");
+                option.textContent = select.options[select.selectedIndex].text;
+                escolhidas.appendChild(option);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Adicionar Disciplinas</h1>
+        <label for="busca">Buscar disciplina por código ou nome:</label>
+        <input type="text" id="busca" placeholder="Digite o código ou nome da disciplina">
+        
+        <label for="disciplinas">Escolha uma disciplina:</label>
+        <select id="disciplinas">
+            
+        </select>
+        
+        <button onclick="alert('Disciplinas adicionadas com sucesso!')">Adicionar Disciplina</button>
+    </div>
+</body>
+</html>
