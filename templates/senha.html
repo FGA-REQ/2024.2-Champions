@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Média Mestre- Redefinir Senha</title>
+    <title>Média Mestre - Redefinir Senha</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,20 +50,27 @@
         button:hover {
             background-color: #4052c4;
         }
+        .error-message {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
     </style>
     <script>
         function resetPassword(event) {
             event.preventDefault();
             var newPassword = document.getElementById("new-password").value;
             var confirmPassword = document.getElementById("confirm-password").value;
+            var errorMessage = document.getElementById("error-message");
             
             if (newPassword !== confirmPassword) {
-                alert("As senhas não coincidem. Tente novamente.");
+                errorMessage.style.display = "block";
+                errorMessage.textContent = "As duas senhas não estão iguais";
                 return;
             }
             
             alert("Senha redefinida com sucesso!");
-            window.location.href = "login.html";
+            window.location.href = "log-in.html";
         }
     </script>
 </head>
@@ -81,6 +88,7 @@
             <input type="password" id="confirm-password" name="confirm-password" required>
             
             <button type="submit">Redefinir Senha</button>
+            <p id="error-message" class="error-message">As duas senhas não estão iguais</p>
         </form>
     </div>
 </body>
