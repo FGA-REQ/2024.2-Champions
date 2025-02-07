@@ -1,42 +1,18 @@
-# Requisitos Funcionais (RF)
+# Declaração de Requisitos
 
-## 1. Seleção de Cursos
-- O sistema deve ser capaz de exibir uma lista de cursos disponíveis para o usuário selecionar.
-- O usuário necessita que o sistema permita a seleção de um ou mais cursos para gerenciamento de materiais e cálculo de notas.
+A **declaração de requisitos** é a especificação detalhada das necessidades e expectativas de um sistema de software, documentada de forma clara e objetiva. Ela descreve **o que o sistema deve fazer**, sem entrar em detalhes sobre como será implementado.
 
-## 2. Cadastro de Matérias
-- O sistema deve ser capaz de permitir o cadastro de matérias de estudo para cada curso selecionado.
-- O usuário necessita que o sistema armazene e organize matérias cadastrados por curso e por tipo (ex.: apostilas, livros, PDFs).
+## Declaração de Requisitos Funcionais
 
-## 3. Simulador do IRA (Índice de Rendimento Acadêmico)
-- O sistema deve ser capaz de calcular o IRA com base nas notas e pesos das disciplinas inseridas pelo usuário.
-- O usuário necessita de um simulador que permita prever o impacto de uma nova nota no IRA atual.
-
-## 4. Simulador de Menção
-- O sistema deve permitir ao usuário inserir notas parciais e calcular a menção final (aprovado/reprovado).
-- O cliente deseja utilizar o simulador de menção para planejar o desempenho necessário para aprovação em uma disciplina.
-
-## 5. Integração com Google Agenda
-- O sistema deve ser capaz de adicionar automaticamente eventos no Google Agenda com as datas de provas e possíveis menções.
-- O usuário necessita que o sistema permita a configuração de lembretes personalizados para as datas adicionadas ao Google Agenda.
-
-## 6. Salvar Dados em Link
-- O sistema deve permitir ao usuário gerar um link único que contenha todas as informações e configurações salvas, para facilitar o compartilhamento ou recuperação de dados.
-- O cliente deseja salvar seus dados e progressos em um link para acessar posteriormente de qualquer dispositivo.
-
-# Requisitos Não Funcionais (RNF)
-
-## 1. Acessibilidade
-- O sistema deve ser acessível por meio de dispositivos móveis e navegadores desktop.
-
-## 2. Performance
-- O sistema deve ser responsivo e funcionar com boa performance em conexões lentas.
-
-## 3. Segurança do Banco de Dados
-- O banco de dados deve garantir segurança e integridade das informações armazenadas.
-
-## 4. Integração com o Google Agenda
-- A integração com o Google Agenda deve ser feita por meio de APIs autorizadas e seguir padrões de privacidade.
-
-## 5. Link Gerado para Salvamento de Dados
-- O link gerado para salvar os dados deve ter validade ilimitada e ser protegido contra acesso não autorizado.
+| Código | Nome do Requisito      | Descrição do Requisito                                                                                                                                                     | Prioridade do Requisito | Regra de Negócio Associada |
+| ------ | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------- | -------------------------- |
+| RF01   | Cadastro de Usuário    | O sistema deve permitir que o usuário faça cadastro no sistema, com email e senha, em uma tela de cadastro exclusiva                                                       | ALTA                    | [RN01](regras-negocio.md)  |
+| RF02   | Login de Usuário       | O sistema deve permitir que o usuário faça login no sistema com email e senha em uma tela de login de usuário exclusiva.                                                   | ALTA                    | [RN01](regras-negocio.md)  |
+| RF03   | Mudança de senha       | O sistema deve permitir que o usuário faça alteração de senha, fornecendo seu email, a nova senha e a confirmação da nova senha em uma tela de mudança de senha exclusiva. | ALTA                    | [RN01](regras-negocio.md)  |
+| RF04   | Validação de Usuário   | O sistema deve validar o login do usuário, indicando quando os dados inseridos forem incorretos, notificando o usuário com uma frase em vermelho.                          | ALTA                    | [RN01](regras-negocio.md)  |
+| RF05   | Página de Menu         | O sistema deve disponibilizar uma tela de menu exclusiva para usuários que efetuaram o login.                                                                              | ALTA                    | [RN02](regras-negocio.md)  |
+| RF06   | Adicionar disciplinas  | O usuário na tela de menu poderá acessar uma página exclusiva para adicionar disciplinas.                                                                                  | ALTA                    | [RN03](regras-negocio.md)  |
+| RF07   | Ver disciplinas        | O usuário na tela de menu poderá acessar uma página exclusiva para ver suas disciplinas.                                                                                   | ALTA                    | [RN04](regras-negocio.md)  |
+| RF08   | Acesso ao Calendário   | O usuário na tela de menu poderá acessar o calendário.                                                                                                                     | ALTA                    | [RN05](regras-negocio.md)  |
+| RF09   | Cálculo de Médias      | O sistema deve permitir que o usuário insira notas de avaliações e calcular automaticamente a média final de cada disciplina.                                              | ALTA                    | [RN02](regras-negocio.md)  |
+| RF10   | Registro de Avaliações | O sistema deve permitir que o usuário registre avaliações, informando a data e a disciplina correspondente.                                                                | ALTA                    | [RN03](regras-negocio.md)  |
