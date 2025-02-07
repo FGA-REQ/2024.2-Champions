@@ -15,13 +15,13 @@ theme:
 nav:
   - Página Inicial: "index.md"
   - Histórico de Versões: "historico.md"
-  - Regras de Negócio: "regras-negocio.md"
-  - Processo de Desenvolvimento de Software: "bpmn.md"
   - Visão do Produto e do Projeto: "visao-produto-projeto.md"
+  - Regras de Negócio: "regras-negocio.md"
+  - Declaração de Requisitos: "declaracao-requisitos.md"
   - Histórias de Usuário: "historias-usuario.md"
   - Fluxo de Usuário: "fluxo-usuario.md"
-  - Declaração: "declaracao-requisitos.md"
   - Backlog do Produto: "backlog.md"
+  - Processo de Desenvolvimento de Software: "bpmn.md"
   - MVP: "mvp.md"
   - Teste: "teste.md"
 
