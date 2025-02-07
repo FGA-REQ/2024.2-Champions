@@ -6,7 +6,6 @@ from api.infra.sqlalchemy.config.db import get_db
 from api.infra.sqlalchemy.repositories.user import UserRepository
 from api.infra.providers import hash_provider
 from api.schemas.schemas import User
-import urllib.parse
 
 router = APIRouter(
     tags = ["Rotas de Autenticação de Usuário"] 
@@ -43,11 +42,18 @@ async def cadastro(request: Request):
 # Dashboard page
 @router.get("/dashboard", response_class=HTMLResponse)
 async def dashboard(request: Request):
-    return templates.TemplateResponse("dashboard.html", {"request": request})
+    return templates.TemplateResponse("paginaUsuario.html", {"request": request})
 
+# Calendar page
 @router.get("/calendar", response_class=HTMLResponse)
 async def calendar_page(request: Request):
     return templates.TemplateResponse("calendar.html", {"request": request})
+
+# Disciplines page 
+@router.get('/discipline-management', response_class=HTMLResponse)
+async def discipline_management_page(request: Request):
+    return templates.TemplateResponse("adicionar.html", 
+                                      {"request" : request})
 
 # Login route 
 @router.post("/login")
