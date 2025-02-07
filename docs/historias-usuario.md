@@ -1,32 +1,42 @@
 As histórias de usuário são uma declaração de uma pequena funcionalidade que o cliente pretende ver desenvolvida no produto, ou seja, algo que o produto precisa fazer. É capturada em um cartão, não devendo ter detalhes de comportamento do produto, os quais são deixados para ser desenvolvidos mais tarde por meio de conversas e critérios de aceitação entre a equipe e o proprietário do produto.
 
-### História de Usuário 01 - Cadastro no Sistema
+### História de Usuário 01 - Acesso do Usuário no Sistema
 
 #### Cartão
 
-"Como usuário eu quero me cadastrar no sistema para que eu consiga escolher o meu curso."
+"Eu como usuário quero poder acessar o sistema para que eu consiga gerenciar as minhas disciplinas"
 
 #### Conversação
 
 - O usuário pode se cadastrar de qualquer forma?
 - O que é essencial para o cadastro?
+- O usuário pode recuperar a senha?
+- O usuário pode fazer login de que forma?
 - Caso falte alguma informação, o sistema deve validar os campos obrigatórios?
 
-**Resposta:** O usuário precisa fornecer **email**, **senha** e **curso** para completar o cadastro. Campos incompletos ou inválidos devem gerar mensagens de erro.
+**Resposta:**
+
+O usuário precisa fornecer **email** e **senha** para completar o cadastro.
+
+O usuário caso esqueça a senha pode recuperá-la, fornecendo seu **email**, sua **nova senha** e **confirmação da nova senha**.
+
+O usuário pode fazer login no sistema fornecendo seu **email** e **senha**.
+
+Campos incompletos ou inválidos devem gerar mensagens de erro.
 
 #### Confirmação
 
-- O usuário deverá se cadastrar fornecendo seu **endereço de e-mail**, **senha** e **curso**.
+- O usuário deverá acessar o sistema fornecendo seu **endereço de e-mail** e **senha**.
 
-**(US01)** Como usuário, eu quero me cadastrar no sistema para que eu consiga escolher o meu curso
+**(US01)** Eu como usuário quero acessar o sistema para que eu consiga gerenciar as minhas disciplinas.
 
 ---
 
-### História de Usuário 02 - Seleção de Disciplinas
+### História de Usuário 02 - Gerenciamento de Disciplinas
 
 #### Cartão
 
-"Como usuário, eu quero selecionar as disciplinas que estou cursando no semestre dentro da plataforma."
+"Eu como usuário quero poder gerenciar as disciplinas que estou cursando no semestre dentro da plataforma."
 
 #### Conversação
 
@@ -34,63 +44,58 @@ As histórias de usuário são uma declaração de uma pequena funcionalidade qu
 - O que acontece se o usuário estiver cursando apenas uma disciplina? Ele pode escolher apenas uma?
 - O usuário busca disciplinas pelo nome ou código?
 - Podemos incluir a busca por professor também?
+- O usuário poderá cadastrar disciplinas no sistema?
+- O usuário poderá visualizar a disciplina?
+- O usuário poderá remover a disciplina?
 
-**Resposta:** O usuário pode escolher **pelo menos uma disciplina** e a busca será feita por **nome da disciplina** ou **código**. A busca por professor não é necessária para a funcionalidade.
+**Resposta:**
+
+O usuário pode escolher **pelo menos uma disciplina** e a busca será feita por **nome da disciplina** ou **código**. A busca por professor não é necessária para a funcionalidade.
+
+O usuário **não poderá** cadastrar nenhuma disciplina, isso será feito com um serviço de Webscraping do site do SIGAA.
+
+O usuário poderá **visualizar** a disciplina para que possa efetuar as operações disponíveis no sistema.
+
+O usuário também poderá **remover** a disciplina do seu menu de disciplinas.
 
 #### Confirmação
 
 - O usuário poderá escolher **uma ou mais disciplinas**.
 - A busca pelas disciplinas será feita através do **nome** ou **código** da disciplina.
+- O usuário não poderá cadastrar disciplinas novas.
+- O usuário poderá visualizar a disciplina.
+- O usuário poderá remover as disciplinas.
 
-**(US02)** Como usuário, eu quero selecionar as disciplinas que estou cursando no semestre com base no **código da disciplina** e no **nome** da disciplina.
+**(US02)** Como usuário, eu quero poder gerenciar as disciplinas que estou cursando dentro do meu semstre.
 
 ---
 
-### História de Usuário 03 - Cálculo de Menção
+### História de Usuário 03 - Cálculo de Menção e de Média
 
 #### Cartão
 
-"Como usuário, eu quero receber o valor que preciso tirar em cada prova para alcançar uma menção desejada."
+"Eu como usuário quero saber minhas médias parciais e totais das disciplinas que estou cursando e ao final do semestre ver a menção."
 
 #### Conversação
 
 - O usuário indica a **nota que obteve** ou o sistema calcula as **notas mínimas** necessárias?
 - O sistema deve considerar diferentes formas de calcular a média: média simples, média ponderada ou outro cálculo?
-- O usuário escolhe a menção que deseja ou o sistema sugere? Qual deve ser a interação?
 
-**Resposta:** O usuário **indica** como deseja calcular a média (simples, ponderada ou personalizada), depois escolhe a **menção** desejada (MM, MS ou SS), e o sistema retornará as **notas mínimas necessárias** para alcançar a menção.
+**Resposta:**
 
-#### Confirmação
+O usuário indica a **quantidade de avaliações** e os seus respectivos **pesos**, sendo em seguida calculada a sua média.
 
-- O usuário indicará como o cálculo da média será feito (média aritmética, média ponderada ou fórmula específica).
-- O usuário indicará qual menção deseja alcançar, e o sistema fornecerá as notas mínimas necessárias.
-
-**(US03)** Como usuário, eu quero receber o valor que preciso tirar em cada prova para alcançar uma menção desejada.
-
----
-
-### História de Usuário 04 - Cálculo do Índice de Rendimento Acadêmico (IRA)
-
-#### Cartão
-
-"Como usuário, eu quero calcular o meu Índice de Rendimento Acadêmico (IRA) com base nas disciplinas já cursadas."
-
-#### Conversação
-
-- O IRA será calculado com base nas **disciplinas já cursadas** ou também pode considerar disciplinas em andamento?
-- O sistema deve permitir a consulta a qualquer momento, mesmo sem incluir disciplinas em andamento?
-
-**Resposta:** O IRA será calculado apenas com base nas **disciplinas já cursadas** e **aprovadas**, com o usuário podendo consultar a qualquer momento. Disciplinas em andamento não entram no cálculo.
+O sistema deve considerar apenas o cálculo de médias personalizadas, o qual o usuário oferece a **quantidade de avaliações** e os seus respectivos **pesos**.
 
 #### Confirmação
 
-- O sistema calculará o **Índice de Rendimento Acadêmico (IRA)** com base nas disciplinas **já cursadas** e **aprovadas**.
+- O usuário indicará a quantidade de avaliações e seus respectivos pesos
 
-**(US04)** Como usuário, eu quero calcular o meu Índice de Rendimento Acadêmico (IRA) com base nas disciplinas já cursadas.
+**(US03)** Eu como usuário quero saber minhas médias parciais e totais das disciplinas que estou cursando e ao final do semestre ver a menção.
 
 ---
 
-### História de Usuário 05 - Gerar Calendário de Provas e Avaliações
+### História de Usuário 04 - Gerenciar o Calendário de Provas e Avaliações
 
 #### Cartão
 
@@ -100,56 +105,41 @@ As histórias de usuário são uma declaração de uma pequena funcionalidade qu
 
 - O usuário tem as **datas das provas e das avaliações** previamente ou o sistema irá puxá-las de algum lugar?
 - O usuário pode **adicionar ou editar** as datas manualmente?
-- E quanto às **provas ou avaliações de reposição** ou outras informações extras, como tratá-las?
+- O usuário poderá **integrar** o calendário com outras ferramentas? (ex: Google Calendar)
 
-**Resposta:** O sistema puxará as **datas das provas e das avaliações** diretamente do **calendário acadêmico** fornecido pela instituição, mas o usuário também poderá **adicionar ou editar** as datas. O sistema também permitirá o **registro de provas e avaliações de reposição**.
+**Resposta:**
 
-#### Confirmação
+O sistema permitirá que o usuário **adicione** ou **edite** as avaliações nas respectivas datas com o seu devido título de forma manual.
 
-- O usuário poderá **gerar um calendário** com as datas das provas, com informações fornecidas pelo **calendário acadêmico** ou inseridas manualmente pelo usuário.
-
-**(US05)** Como usuário, eu quero gerar um calendário para acompanhar as datas das provas.
-
----
-
-### História de Usuário 06 - Integração com Google Calendar
-
-#### Cartão
-
-"Como usuário, eu quero integrar o calendário de provas com o meu Google Calendar."
-
-#### Conversação
-
-- O usuário pode **sincronizar** as datas diretamente com o **Google Calendar**? Ou ele precisa adicionar as provas manualmente no calendário do Google?
-- O que acontece após a integração? O usuário recebe uma **confirmação por e-mail**?
-
-**Resposta:** O usuário poderá **integrar as datas** das provas com o **Google Calendar**, e o sistema enviará uma **confirmação por e-mail** com o link para o calendário.
+O sistema permitirá que o usuário faça a integração do calendário com o **Google Calendar**
 
 #### Confirmação
 
-- O usuário poderá **integrar** as datas das provas com o **Google Calendar**.
-- O sistema enviará uma **confirmação por e-mail** com o link para o calendário integrado.
+- O usuário poderá **gerar um calendário** com as datas das provas, com informações inseridas manualmente pelo usuário.
 
-**(US06)** Como usuário, eu quero integrar o calendário de provas com o meu **Google Calendar**.
+- O usuário poderá integrar o calendário do sistema com o **Google Calendar**
+
+**(US04)** Como usuário, eu quero gerar um calendário para acompanhar as datas das provas.
 
 ---
 
-### História de Usuário 07 - Gerar Link para Salvar Dados
+<!--
+### História de Usuário 06 - Gerar Link para Salvar Dados
 
 #### Cartão
 
 "Como usuário, eu quero gerar um link para salvar meus dados e progresso, para que eu possa acessá-los ou compartilhá-los facilmente de qualquer dispositivo."
 
-#### Conversação 
+#### Conversação
 
 - Os dados salvos incluirão quais informações?
 - Como o usuário acessará os dados salvos?
 
-**Resposta:**  Os dados incluirão perfil do usuário, disciplinas escolhidas, notas calculadas, índice de rendimento acadêmico (IRA) e calendário de provas/avaliações. E, ao acessar o link, o sistema restaurará o estado salvo, permitindo que o usuário continue de onde parou ou utilize as informações compartilhadas.
+**Resposta:** Os dados incluirão perfil do usuário, disciplinas escolhidas, notas calculadas, índice de rendimento acadêmico (IRA) e calendário de provas/avaliações. E, ao acessar o link, o sistema restaurará o estado salvo, permitindo que o usuário continue de onde parou ou utilize as informações compartilhadas.
 
 #### Confirmação
 
 - O usuário poderá **gerar** um link contendo informações sobre perfil, progresso, disciplinas, notas, IRA e calendário
 - Esse link será acessível em **qualquer** dispositivo e permitirá **compartilhamento** fácil.
 
-**(US07)** Como usuário, eu quero gerar um link para salvar meus dados e progresso, para que eu possa acessá-los ou compartilhá-los facilmente de qualquer dispositivo.
+**(US07)** Como usuário, eu quero gerar um link para salvar meus dados e progresso, para que eu possa acessá-los ou compartilhá-los facilmente de qualquer dispositivo. -->
