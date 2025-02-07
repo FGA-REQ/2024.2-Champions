@@ -4,8 +4,6 @@ repo_url: https://github.com/FGA-REQ/2024.2-Champions
 theme:
   name: material
   features:
-    - navigation.tabs
-    - navigation.instant
   extra:
     social:
       - icon: fontawesome/brands/github
@@ -23,7 +21,9 @@ nav:
   - Backlog do Produto: "backlog.md"
   - Processo de Desenvolvimento de Software: "bpmn.md"
   - MVP: "mvp.md"
-  - Teste: "teste.md"
+  - Relacionamentos: "teste.md"
+  - Definition of Ready: "DoR.md"
+  - Definition of Done: "DoD.md"
 
 extra_css:
-  - css/extra.css
+  - extra/extra.css
