@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: sans-serif;
   background-color: #f4f4f4;
   display: flex;
@@ -54,11 +54,6 @@ button:hover {
   background-color: #0056b3;
 }
 
-.error-message {
-  color: red;
-  margin-top: 10px;
-  text-align: center;
-}
 .register-link {
   text-align: center;
   margin-top: 10px;
@@ -71,8 +66,65 @@ button:hover {
 
 .register-link a:hover {
   text-decoration: underline;
-}
+} */
 
+body {
+  font-family: Arial, sans-serif;
+  background-color: white;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+.container {
+  background: #ffffff;
+  width: 40%;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border: 2px solid #526cfe;
+}
+h1 {
+  color: #526cfe;
+}
+label {
+  font-size: 16px;
+  display: block;
+  margin: 10px 0 5px;
+  color: #526cfe;
+}
+input {
+  width: 90%;
+  padding: 10px;
+  border: 1px solid #526cfe;
+  border-radius: 5px;
+  font-size: 16px;
+}
+button {
+  background-color: #526cfe;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+button:hover {
+  background-color: #4052c4;
+}
+.secondary-button {
+  background: none;
+  border: none;
+  color: #526cfe;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.secondary-button:hover {
+  color: #4052c4;
+}
 
 {calendario}
 
