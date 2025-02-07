@@ -1,96 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Média Mestre- Cadastro</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: white;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            background: #ffffff;
-            width: 40%;
-            margin: 50px auto;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: 2px solid #526cfe;
-        }
-        h1 {
-            color: #526cfe;
-        }
-        label {
-            font-size: 16px;
-            display: block;
-            margin: 10px 0 5px;
-            color: #526cfe;
-        }
-        input {
-            width: 90%;
-            padding: 10px;
-            border: 1px solid #526cfe;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-        button {
-            background-color: #526cfe;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 20px;
-        }
-        button:hover {
-            background-color: #4052c4;
-        }
-        .secondary-button {
-            background: none;
-            border: none;
-            color: #526cfe;
-            text-decoration: underline;
-            cursor: pointer;
-            margin-top: 10px;
-            font-size: 14px;
-        }
-        .secondary-button:hover {
-            color: #4052c4;
-        }
-    </style>
-    <script>
-        function validarSenha(event) {
-            event.preventDefault();
-            var senha = document.getElementById("senha").value;
-            var confirmarSenha = document.getElementById("confirmar-senha").value;
-            
-            if (senha !== confirmarSenha) {
-                alert("As senhas não coincidem. Tente novamente.");
-                return;
-            }
-            
-            window.location.href = 'log-in.html';
-        }
-    </script>
-</head>
-<body>
-    <div class="container">
-        <h1>Cadastro Completo</h1>
-        <form onsubmit="validarSenha(event)">
-            
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
-            
-            <button type="submit">Cadastrar</button>
-        </form>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Cadastro</title>
+  </head>
+  <body>
+    <div class="login-container">
+      <h2>Cadastro</h2>
+      {% if request.query_params.get('message') %}
+      <div class="error-message">
+        <p>{{ request.query_params.get('message') }}</p>
+      </div>
+      {% endif %}
+
+      <form method="post" action="/cadastro">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Senha:</label>
+        <input type="password" id="password" name="password" required />
+
+        <label for="confirm_password">Confirmar Senha:</label>
+        <input
+          type="confirm_password"
+          id="confirm_password"
+          name="confirm_password"
+          required
+        />
+
+        <button type="submit">Cadastrar</button>
+      </form>
+      <br />
+      <div class="register-link">
+        Já tem cadastro? <a href="/login">Faça login aqui</a>
+      </div>
     </div>
-</body>
+  </body>
 </html>
