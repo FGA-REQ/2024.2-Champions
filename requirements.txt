@@ -22,3 +22,6 @@ SQLAlchemy==1.4.7
 starlette==0.41.3
 typing_extensions==4.12.2
 uvicorn==0.34.0
+google-api-python-client 
+google-auth-httplib2 
+google-auth-oauthlib
