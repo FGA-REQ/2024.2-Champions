@@ -50,7 +50,7 @@ async def dashboard(request: Request):
 async def calendar_page(request: Request):
     return templates.TemplateResponse("calendar.html", {"request": request})
 
-# Disciplines page 
+# Add Disciplines page 
 @router.get('/discipline-management', response_class=HTMLResponse)
 async def discipline_management_page(request: Request, search: str = None, db: Session = Depends(get_db)):
     
@@ -70,6 +70,11 @@ async def discipline_management_page(request: Request, search: str = None, db: S
                                           'disciplinas': disciplinas,
                                           'search': search
                                        })
+
+# Disciplines page 
+@router.get('/disciplines', response_class=HTMLResponse)
+async def discipline_page(request: Request):
+    return templates.TemplateResponse("cursos.html", {"request": request})
 
 
 # Login route 
@@ -150,13 +155,10 @@ async def discipline_add(
     db: Session = Depends(get_db)
     ):
         
-
-        if not disciplinas: 
-            return RedirectResponse(f'/discipline-management?message=Marque uma disciplina.',status_code=status.HTTP_303_SEE_OTHER)
-            
-        else:
-            disciplinas = DisciplineRepository(db).search_discipline(disciplinas)
-            return RedirectResponse(f'/discipline-management?message=Disciplina adicionada com sucesso!',status_code=status.HTTP_303_SEE_OTHER)
+        ## current_user = models.User, how to get it?
+        disciplinas = DisciplineRepository(db).search_discipline(disciplinas)
+        #User(db).add_courses(disciplinas)
+        return RedirectResponse(f'/discipline-management?message=Disciplina adicionada com sucesso!',status_code=status.HTTP_303_SEE_OTHER)
             
         return templates.TemplateResponse("adicionar.html", 
                                         {
