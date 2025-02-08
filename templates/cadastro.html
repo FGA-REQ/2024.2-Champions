@@ -7,7 +7,7 @@
     <title>Cadastro</title>
   </head>
   <body>
-    <div class="login-container">
+    <div class="container">
       <h2>Cadastro</h2>
       {% if request.query_params.get('message') %}
       <div class="error-message">
@@ -24,7 +24,7 @@
 
         <label for="confirm_password">Confirmar Senha:</label>
         <input
-          type="confirm_password"
+          type="password"
           id="confirm_password"
           name="confirm_password"
           required
