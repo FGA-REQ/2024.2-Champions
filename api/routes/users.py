@@ -4,6 +4,7 @@ from fastapi.templating import Jinja2Templates
 from sqlalchemy.orm import Session
 from api.infra.sqlalchemy.config.db import get_db
 from api.infra.sqlalchemy.repositories.user import UserRepository
+from api.infra.sqlalchemy.repositories.discipline import DisciplineRepository
 from api.infra.providers import hash_provider
 from api.schemas.schemas import User
 
@@ -51,9 +52,24 @@ async def calendar_page(request: Request):
 
 # Disciplines page 
 @router.get('/discipline-management', response_class=HTMLResponse)
-async def discipline_management_page(request: Request):
+async def discipline_management_page(request: Request, search: str = None, db: Session = Depends(get_db)):
+    
+    if search:
+        disciplinas = DisciplineRepository(db).search_discipline(search)
+    else:
+        disciplinas = DisciplineRepository(db).list_all()
+
+    if not disciplinas: 
+        return "NADA FOI ENCONTRADO"
+    else:
+        print("encontrei")
     return templates.TemplateResponse("adicionar.html", 
-                                      {"request" : request})
+                                      {
+                                          "request" : request,
+                                          'disciplinas': disciplinas,
+                                          'search': search
+                                       })
+
 
 # Login route 
 @router.post("/login")

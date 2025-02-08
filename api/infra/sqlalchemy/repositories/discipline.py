@@ -21,6 +21,16 @@ class DisciplineRepository():
         disciplines = self.db.query(models.Discipline).all()
         return disciplines
 
+    def search_discipline(self, search: str):
+        query = self.db.query(models.Discipline)
+        
+        query = query.filter(
+            (models.Discipline.discipline_code.ilike(f'%{search}%')) |  
+            (models.Discipline.discipline_name.ilike(f'%{search}%'))  
+        )
+        
+        return query.all()
+
     def add_user_to_discipline(self, user_email: str, discipline_code: str):
         """Vincula um usuário à disciplina usando a tabela associativa."""
         stmt = insert(models.user_discipline).values(
