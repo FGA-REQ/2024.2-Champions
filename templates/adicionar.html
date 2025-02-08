@@ -59,12 +59,21 @@
         border-radius: 5px;
         text-align: left;
       }
+      .success-message {
+        color: green;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <h1>Adicionar Disciplinas</h1>
-
+        
+      {% if request.query_params.get('message') %}
+      <div class="success-message">
+        <p>{{ request.query_params.get('message') }}</p>
+      </div>
+      {% endif %}
+      
       <form method="get" action="/discipline-management">
         <label for="busca">Buscar disciplina por código ou nome:</label>
         <input
@@ -77,23 +86,28 @@
         <button type="submit">Buscar</button>
       </form>
       
-      <label for="disciplinas">Escolha uma disciplina:</label>
-      <select id="disciplinas" name="disciplinas">
-        {% for disciplina in disciplinas %}
-          <option value="{{ disciplina.discipline_code }}"
-                  {% if disciplina.discipline_code == search or disciplina.discipline_name == search %} selected {% endif %}>
-            {{ disciplina.discipline_code }} - {{ disciplina.discipline_name }}
-          </option>
-        {% else %}
-          <option disabled>Sem disciplinas encontradas.</option>
-        {% endfor %}
-      </select>
+      
+      <form method="post" action="/discipline-management">
+        <label for="disciplinas">Escolha uma disciplina:</label>
+        <select id="disciplinas" name="disciplinas" required>
+          {% for disciplina in disciplinas %}
+            <option value="{{ disciplina.discipline_code }}"
+                    {% if disciplina.discipline_code == search or disciplina.discipline_name == search %} selected {% endif %}>
+              {{ disciplina.discipline_code }} - {{ disciplina.discipline_name }}
+            </option>
+          {% else %}
+            <option disabled>Sem disciplinas encontradas.</option>
+          {% endfor %}
+        </select>
 
-      <button onclick="adicionarDisciplina()">Adicionar Disciplina</button>
+        <button type="submit">Adicionar Disciplina</button>
+      </form>
+
       <a href="/dashboard">
         <button>Voltar ao menu</button>
       </a>
     </div>
+
     <script src="/static/discipline-management-scripts.js"></script>
   </body>
 </html>

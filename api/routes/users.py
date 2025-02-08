@@ -59,10 +59,11 @@ async def discipline_management_page(request: Request, search: str = None, db: S
     else:
         disciplinas = DisciplineRepository(db).list_all()
 
-    if not disciplinas: 
-        return "NADA FOI ENCONTRADO"
-    else:
-        print("encontrei")
+    #if not disciplinas: 
+    #    return RedirectResponse(f'/login?message=NADA FOI ENCONTRADO',status_code=status.HTTP_303_SEE_OTHER)
+        
+    #else:
+    #    print("encontrei")
     return templates.TemplateResponse("adicionar.html", 
                                       {
                                           "request" : request,
@@ -141,3 +142,26 @@ async def change_password(
         raise HTTPException(status_code=500, detail='Erro ao atualizar a senha!')
 
     return RedirectResponse('/login', status_code=303)
+
+# Disciplines post 
+@router.post('/discipline-management')
+async def discipline_add(
+    disciplinas: str = Form(...),
+    db: Session = Depends(get_db)
+    ):
+        
+
+        if not disciplinas: 
+            return RedirectResponse(f'/discipline-management?message=Marque uma disciplina.',status_code=status.HTTP_303_SEE_OTHER)
+            
+        else:
+            disciplinas = DisciplineRepository(db).search_discipline(disciplinas)
+            return RedirectResponse(f'/discipline-management?message=Disciplina adicionada com sucesso!',status_code=status.HTTP_303_SEE_OTHER)
+            
+        return templates.TemplateResponse("adicionar.html", 
+                                        {
+                                            "request" : request,
+                                            'disciplinas': disciplinas,
+                                            'search': search
+                                        })
+
