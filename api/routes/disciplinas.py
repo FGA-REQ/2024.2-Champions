@@ -1,23 +1,32 @@
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, Request, status
 from api.infra.sqlalchemy.config.db import get_db
 from api.schemas.schemas import Discipline
 from sqlalchemy.orm import Session
 from api.infra.sqlalchemy.repositories.discipline import DisciplineRepository
+from fastapi.templating import Jinja2Templates
+
 router = APIRouter(
     prefix = "/disciplinas",
     tags = ["Rotas de Disciplina"] 
 )
 
-@router.get("/", status_code = status.HTTP_200_OK)
-def get_disciplines(db: Session = Depends(get_db)):
-    disciplinas = DisciplineRepository(db).list_all()
-    return disciplinas
-    
+templates = Jinja2Templates(directory="templates")
 
-#@router.post('/', status_code=status.HTTP_201_CREATED)
-#def create_user(user: User, db: Session = Depends(get_db)):
-#user_created = UserRepository(db).create(user)
- # return user_created
+@router.get("/", status_code = status.HTTP_200_OK)
+#@router.get("/ver", status_code=status.HTTP_200_OK)
+def ver_disciplinas(request: Request, db: Session = Depends(get_db)):
+    repo = DisciplineRepository(db)
+    disciplinas = repo.list_all()
+    print(disciplinas)  # Verifique se as disciplinas estão aparecendo no terminal
+    return templates.TemplateResponse(
+        "ver_disciplinas.html",
+        {"request": request, "disciplinas": disciplinas}
+    )
+
+#def get_disciplines(db: Session = Depends(get_db)):
+ #   disciplinas = DisciplineRepository(db).list_all()
+  #  return disciplinas
+    
  
 @router.post("/")
 def create_disciplinas(discipline: Discipline, db: Session = Depends(get_db)):

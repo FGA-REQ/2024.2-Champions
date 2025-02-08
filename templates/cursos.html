@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+ <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,7 +22,7 @@
       
       
       -->
-        <table align="center">
+        <!-- <table align="center">
             <tr>
                 <td>
                     <a href="/disciplines?cod=cod0000">
@@ -77,7 +77,26 @@
             </tr>
 
 
-        </table>
+        </table>-->
+
+        <table align="center">
+            <tr>
+              {% for disciplina in disciplinas %}
+                <td>
+                  <a href="/disciplinas/{{ disciplina.discipline_code }}">
+                    <div class="container">
+                      <p>{{ disciplina.discipline_name }}</p>
+                      <p>{{ disciplina.discipline_code }}</p>
+                    </div>
+                  </a>
+                </td>
+                {% if loop.index % 3 == 0 %}
+                  </tr><tr>
+                {% endif %}
+              {% endfor %}
+            </tr>
+          </table> 
+          
 
 
       <a href="/dashboard">
@@ -85,4 +104,6 @@
       </a>
     </div>
   </body>
-</html>
+</html> 
+
+
