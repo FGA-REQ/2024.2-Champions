@@ -45,6 +45,9 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+        handleClientLoad();  // Adicionado para carregar a API ao iniciar a página
+    });
+        document.addEventListener('DOMContentLoaded', function() {
             var calendarEl = document.getElementById('calendar');
             var googleLoginBtn = document.getElementById('google-login');
             var googleLogoutBtn = document.getElementById('google-logout');
@@ -143,10 +146,9 @@
 
             googleLoginBtn.onclick = function() {
                 if (!gapiLoaded) {
-                    handleClientLoad();
-                } else {
-                    gapi.auth2.getAuthInstance().signIn();
+                    handleClientLoad();  // Tenta carregar a API antes
                 }
+                gapi.auth2.getAuthInstance().signIn();
             };
 
             googleLogoutBtn.onclick = function() {
