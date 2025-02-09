@@ -146,7 +146,7 @@ async def change_password(
     if not user_updated:
         raise HTTPException(status_code=500, detail='Erro ao atualizar a senha!')
 
-    return RedirectResponse('/login', status_code=303)
+    return RedirectResponse('/login?message=Senha atualizada com sucesso!', status_code=303)
 
 # Disciplines post 
 @router.post('/discipline-management')
