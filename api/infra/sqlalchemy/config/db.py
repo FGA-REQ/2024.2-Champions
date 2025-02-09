@@ -6,19 +6,18 @@ SQLALCHEMY_DATABASE_URL = 'sqlite:///./apimediamestre.db'
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
 
 engine = create_engine(
-  SQLALCHEMY_DATABASE_URL, connect_args={'check_same_thread': False}
+    SQLALCHEMY_DATABASE_URL, connect_args={'check_same_thread': False}
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 Base = declarative_base()
 
 def create_db():
-  Base.metadata.create_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
 
 def get_db():
-  db = SessionLocal()
-  try:
-    yield db
-  finally:
-    db.close()
-  
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()

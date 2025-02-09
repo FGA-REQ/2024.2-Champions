@@ -5,15 +5,15 @@ from api.infra.sqlalchemy.repositories.course import CourseRepository
 from api.infra.sqlalchemy.config.db import get_db
 
 router = APIRouter(
-  prefix='/courses',
-  tags=['Courses Routes']
+    prefix='/courses',
+    tags=['Courses Routes']
 )
 
 @router.get("/", status_code=status.HTTP_200_OK)
 def get_courses():
-  return { "Message": "Hello from Courses Router!"}
+    return { "Message": "Hello from Courses Router!"}
 
 @router.post('/', status_code=status.HTTP_201_CREATED)
 def create_course(course: Course, db: Session = Depends(get_db)):
-  course_created = CourseRepository(db).create(course)
-  return course_created
+    course_created = CourseRepository(db).create(course)
+    return course_created

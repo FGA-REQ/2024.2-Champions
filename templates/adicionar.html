@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+
 <!--<html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -279,7 +279,7 @@
       
       <form method="post" action="/discipline-management">
         <label for="disciplinas">Escolha uma disciplina:</label>
-        <select id="disciplinas" name="disciplinas" required>
+        <select id="disciplinas" name="discipline_code" required>
           {% for disciplina in disciplinas %}
             <option value="{{ disciplina.discipline_code }}"
                     {% if disciplina.discipline_code == search or disciplina.discipline_name == search %} selected {% endif %}>
@@ -289,7 +289,7 @@
             <option disabled>Sem disciplinas encontradas.</option>
           {% endfor %}
         </select>
-
+        
         <button type="submit">Adicionar Disciplina</button>
       </form>
 

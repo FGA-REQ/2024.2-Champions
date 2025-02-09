@@ -1,6 +1,6 @@
 # models.py
 
-from sqlalchemy import Column, String, ForeignKey, Table, Text, Integer, Date
+from sqlalchemy import Column, String, ForeignKey, Table, Integer, Date
 from api.infra.sqlalchemy.config.db import Base
 from sqlalchemy.orm import relationship
 
@@ -25,9 +25,8 @@ class User(Base):
     password = Column(String)
     # Relacionamento muitos-para-muitos com Discipline
     disciplines = relationship('Discipline', secondary=user_discipline, back_populates='users')
-    # Relacionamento 1:1 com Calendar
+    # Relacionamento com Tarefa
     tarefas = relationship('Tarefa', back_populates='user', cascade="all, delete")
-
 
 class Discipline(Base):
     __tablename__ = 'Discipline'
@@ -41,10 +40,9 @@ class Tarefa(Base):
     __tablename__ = 'Tarefa'
     
     tarefa_id = Column(Integer, primary_key=True, autoincrement=True)
-    user_email = Column(String, ForeignKey('User.email'))  # FK para User
-    data = Column(Date)          # Data da tarefa
-    assunto = Column(String)     # Assunto da tarefa
-
+    user_email = Column(String, ForeignKey('User.email'))
+    data = Column(Date)
+    assunto = Column(String)
     
     # Relacionamento de volta para o usuário
     user = relationship('User', back_populates='tarefas')
