@@ -24,6 +24,7 @@ nav:
   - Relacionamentos: "teste.md"
   - Definition of Ready: "DoR.md"
   - Definition of Done: "DoD.md"
+  - Sprints: "sprints.md"
 
 extra_css:
   - extra/extra.css

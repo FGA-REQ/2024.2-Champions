@@ -1,4 +1,4 @@
-# Relacionamento de Regras de Negócio, Requisitos e Histórias de Usuário
+# Relacionamento de Regras de Negócio, Requisitos, Histórias de Usuário e Fluxo de Usuário
 
 ## Regra de Negócio 01: Acesso ao Sistema  
 **Descrição:** O usuário deve poder acessar sua própria conta para controlar suas disciplinas.  
@@ -10,7 +10,12 @@
 - RF04: Validação de Usuário  
 
 ### História de Usuário Relacionada:  
-- **US01:** "Eu como usuário quero poder acessar o sistema para que eu consiga gerenciar as minhas disciplinas."
+- **US01:** "Eu como usuário quero poder acessar o sistema para que eu consiga gerenciar as minhas disciplinas."  
+
+### Parte do Fluxo de Usuário Relacionada:  
+- **1. Acesso à Interface do Site**  
+- **2. Sistema de Login**  
+- **3. Sistema de Cadastro de Usuário (CRUD)**  
 
 ---
 
@@ -25,7 +30,10 @@
 - RF16: Disponibilizar Menção  
 
 ### História de Usuário Relacionada:  
-- **US03:** "Eu como usuário quero saber minhas médias parciais e totais das disciplinas que estou cursando e ao final do semestre ver a menção."
+- **US03:** "Eu como usuário quero saber minhas médias parciais e totais das disciplinas que estou cursando e ao final do semestre ver a menção."  
+
+### Parte do Fluxo de Usuário Relacionada:  
+- **5. Calcular Notas Mínimas (Média)**  
 
 ---
 
@@ -40,7 +48,10 @@
 - RF20: Integração com Google Calendar  
 
 ### História de Usuário Relacionada:  
-- **US04:** "Como usuário, eu quero gerar um calendário para acompanhar as datas das provas e avaliações acadêmicas."
+- **US04:** "Como usuário, eu quero gerar um calendário para acompanhar as datas das provas e avaliações acadêmicas."  
+
+### Parte do Fluxo de Usuário Relacionada:  
+- **7. Gerar Google Calendar com Datas de Provas**  
 
 ---
 
@@ -56,4 +67,8 @@
 - RF11: Webscraping de Disciplinas  
 
 ### História de Usuário Relacionada:  
-- **US02:** "Eu como usuário quero poder gerenciar as disciplinas que estou cursando no semestre dentro da plataforma."
+- **US02:** "Eu como usuário quero poder gerenciar as disciplinas que estou cursando no semestre dentro da plataforma."  
+
+### Parte do Fluxo de Usuário Relacionada:  
+- **4. Escolher Disciplinas**  
+- **6. Calcular o Índice de Rendimento Acadêmico (IRA)**  
