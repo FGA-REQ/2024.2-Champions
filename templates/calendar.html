@@ -338,7 +338,7 @@
       <div id="calendar" class="calendar"></div>
 
       <!-- Container para adicionar tarefas locais -->
-      <div id="task-container">
+      <div id="task-container" class="task-container" style="display: none">
         <h3>Tarefa para o dia <span id="task-day"></span></h3>
         <form id="task-form" class="task-form">
           <input type="text" id="task-input" placeholder="Digite sua tarefa..." required />
@@ -377,32 +377,22 @@
         var localEvents = [];
 
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          locale: 'pt-br',
-          selectable: true,
-          editable: true,
-          eventSources: [
-            {
-              events: localEvents,
-              className: 'local-event'
-            }
-          ],
-          dateClick: function(info) {
-            taskDay.textContent = info.dateStr;
-            taskContainer.style.display = 'block';
-            taskInput.value = '';
-            taskList.innerHTML = '';
-            
-            var tasksForDate = localEvents.filter(e => e.start === info.dateStr);
-            tasksForDate.forEach(t => {
-              var taskItem = document.createElement('div');
-              taskItem.textContent = t.title;
-              taskList.appendChild(taskItem);
+                initialView: 'dayGridMonth',
+                locale: 'pt-br',
+                selectable: true,
+                editable: true,
+                events: localEvents,
+                dateClick: function(info) {
+                    taskDay.textContent = info.dateStr;
+                    taskContainer.style.display = 'block';
+                    taskInput.value = '';
+                    taskList.innerHTML = '';
+					
+                    var tasksForDate = localEvents.filter(e => e.start === info.dateStr);
+                    tasksForDate.forEach(t => addTaskToList(t));
+                    taskForm.dataset.selectedDate = info.dateStr;
+                }
             });
-
-            taskForm.dataset.selectedDate = info.dateStr;
-          }
-        });
         calendar.render();
 
         function handleClientLoad() {
@@ -482,5 +472,5 @@
             }
         });
     </script>
-  </body>
+</body>
 </html>
