@@ -4,28 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/static/style.css" />
-    <title>Média Mestre - Cadastro</title>
+    <title>Média Mestre - Login</title>
   </head>
   <body>
     <div class="container">
       <h1>Login</h1>
 
-      {% if request.query_params.get('message') %}
-      <div class="error-message">
-        <p>{{ request.query_params.get('message') }}</p>
+      {% if request.query_params.get('message') %} {% set message =
+      request.query_params.get('message') %}
+
+      <div
+        class="message {% if message == 'Cadastro realizado com sucesso!' or message == 'Senha atualizada com sucesso!' %}{% else %}error-message{% endif %}"
+      >
+        <p>{{ message }}</p>
       </div>
       {% endif %}
 
       <form method="post" action="/login">
         <label for="email">Email:</label>
         <input type="email" id="email" name="email" required />
+
         <label for="password">Senha:</label>
         <input type="password" id="password" name="password" required />
+
         <button type="submit">Login</button>
       </form>
-      <br />
+
       <p><a href="/cadastro">Cadastre-se agora</a></p>
-      <a href="/change-password">Esqueci a senha</a>
+      <p><a href="/change-password">Esqueci a senha</a></p>
     </div>
   </body>
 </html>
