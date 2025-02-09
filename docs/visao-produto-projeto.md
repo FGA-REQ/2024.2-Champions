@@ -42,7 +42,7 @@ O projeto **MediaMestre** será desenvolvido utilizando as seguintes tecnologias
 
 - **Backend**: Python (FastAPI)
 - **Banco de dados**: PostgreSQL
-- **Frontend**: Angular
+- **Frontend**: Template - Html
 
 ## Visão do Projeto
 
@@ -87,7 +87,7 @@ A gestão de riscos é uma parte essencial do desenvolvimento do projeto **Media
 ### 2.5 Monitoramento e Controle de Riscos
 
 - **Reuniões Semanais de Acompanhamento**: Durante as sprints, a equipe realizará reuniões semanais de acompanhamento para discutir os riscos e suas atualizações, com foco nas funcionalidades a serem entregues na sprint em andamento.
-- **Ferramentas de Acompanhamento de Tarefas**: A equipe utilizará ferramentas como o Trello ou Jira para monitoramento das tarefas, riscos identificados e progresso do desenvolvimento das histórias de usuário.
+- **Ferramentas de Acompanhamento de Tarefas**: A equipe utilizará a ferramenta git pages para monitoramento das tarefas, riscos identificados e progresso do desenvolvimento das histórias de usuário.
 - **Documentação de Riscos**: Todos os riscos serão documentados e atualizados no backlog, com suas ações de mitigação sendo revisadas conforme o andamento das entregas de cada sprint.
 - **Plano de Contingência**: Em casos de risco crítico, como falhas de integração ou cálculos incorretos, a equipe estará pronta para replanejar as entregas, realocar recursos ou ajustar funcionalidades, sempre alinhado com as necessidades dos usuários.
 
