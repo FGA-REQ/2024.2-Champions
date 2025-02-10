@@ -21,8 +21,8 @@ O MediaMestre é uma iniciativa pensada e projetada para alunos da Universidade 
       </a>
     </td>
     <td align="center">
-      <a href="https://github.com/RudsonMarti">
-        <img src="https://github.com/RudsonMarti.png" width="100px;" alt="Foto de Arthur Fonseca"/><br>
+      <a href="https://github.com/arthurfonsecaa">
+        <img src="https://github.com/arthurfonsecaa.png" width="100px;" alt="Foto de Arthur Fonseca"/><br>
         <sub><b>Arthur Fonseca</b></sub>
       </a>
     </td>
