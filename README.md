@@ -61,7 +61,7 @@ O MediaMestre é uma iniciativa pensada e projetada para alunos da Universidade 
 ## Instalação
 
 ```bash
-git clone https://github.com/seu-usuario/nome-do-projeto.git
+git clone https://github.com/FGA-REQ/2024.2-Champions.git
 ```
 
 ```
