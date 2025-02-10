@@ -1,0 +1,1110 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../declaracao-requisitos/">
+      
+      
+        <link rel="next" href="../fluxo-usuario/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
+    
+    
+      
+        <title>Histórias de Usuário - Documentação</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.d7758b05.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../extra/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#historia-de-usuario-01-acesso-do-usuario-no-sistema" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Documentação" class="md-header__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Documentação
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Histórias de Usuário
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/FGA-REQ/2024.2-Champions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2024.2-Champions
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Documentação" class="md-nav__button md-logo" aria-label="Documentação" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Documentação
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/FGA-REQ/2024.2-Champions" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    2024.2-Champions
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apresentacao/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Apresentação para o cliente
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Página Inicial
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../historico/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Histórico de Versões
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../visao-produto-projeto/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Visão do Produto e do Projeto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../regras-negocio/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Regras de Negócio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../declaracao-requisitos/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Declaração de Requisitos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Histórias de Usuário
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Histórias de Usuário
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-01-acesso-do-usuario-no-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 01 - Acesso do Usuário no Sistema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 01 - Acesso do Usuário no Sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-02-gerenciamento-de-disciplinas" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 02 - Gerenciamento de Disciplinas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 02 - Gerenciamento de Disciplinas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-03-calculo-de-mencao-e-de-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 03 - Cálculo de Menção e de Média
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 03 - Cálculo de Menção e de Média">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-04-gerenciar-o-calendario-de-provas-e-avaliacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 04 - Gerenciar o Calendário de Provas e Avaliações
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 04 - Gerenciar o Calendário de Provas e Avaliações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fluxo-usuario/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fluxo de Usuário
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backlog/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Backlog do Produto
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bpmn/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Processo de Desenvolvimento de Software
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mvp/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MVP
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../teste/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Relacionamentos
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DoR/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Definition of Ready
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DoD/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Definition of Done
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sprints/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sprints
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-01-acesso-do-usuario-no-sistema" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 01 - Acesso do Usuário no Sistema
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 01 - Acesso do Usuário no Sistema">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-02-gerenciamento-de-disciplinas" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 02 - Gerenciamento de Disciplinas
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 02 - Gerenciamento de Disciplinas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-03-calculo-de-mencao-e-de-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 03 - Cálculo de Menção e de Média
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 03 - Cálculo de Menção e de Média">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#historia-de-usuario-04-gerenciar-o-calendario-de-provas-e-avaliacoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      História de Usuário 04 - Gerenciar o Calendário de Provas e Avaliações
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="História de Usuário 04 - Gerenciar o Calendário de Provas e Avaliações">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cartao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Cartão
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conversacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Conversação
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confirmacao_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Confirmação
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Histórias de Usuário</h1>
+
+<p>As histórias de usuário são uma declaração de uma pequena funcionalidade que o cliente pretende ver desenvolvida no produto, ou seja, algo que o produto precisa fazer. É capturada em um cartão, não devendo ter detalhes de comportamento do produto, os quais são deixados para ser desenvolvidos mais tarde por meio de conversas e critérios de aceitação entre a equipe e o proprietário do produto.</p>
+<h3 id="historia-de-usuario-01-acesso-do-usuario-no-sistema">História de Usuário 01 - Acesso do Usuário no Sistema</h3>
+<h4 id="cartao">Cartão</h4>
+<p>"Eu como usuário quero poder acessar o sistema para que eu consiga gerenciar as minhas disciplinas"</p>
+<h4 id="conversacao">Conversação</h4>
+<ul>
+<li>O usuário pode se cadastrar de qualquer forma?</li>
+<li>O que é essencial para o cadastro?</li>
+<li>O usuário pode recuperar a senha?</li>
+<li>O usuário pode fazer login de que forma?</li>
+<li>Caso falte alguma informação, o sistema deve validar os campos obrigatórios?</li>
+</ul>
+<p><strong>Resposta:</strong></p>
+<p>O usuário precisa fornecer <strong>email</strong> e <strong>senha</strong> para completar o cadastro.</p>
+<p>O usuário caso esqueça a senha pode recuperá-la, fornecendo seu <strong>email</strong>, sua <strong>nova senha</strong> e <strong>confirmação da nova senha</strong>.</p>
+<p>O usuário pode fazer login no sistema fornecendo seu <strong>email</strong> e <strong>senha</strong>.</p>
+<p>Campos incompletos ou inválidos devem gerar mensagens de erro.</p>
+<h4 id="confirmacao">Confirmação</h4>
+<ul>
+<li>O usuário deverá acessar o sistema fornecendo seu <strong>endereço de e-mail</strong> e <strong>senha</strong>.</li>
+</ul>
+<p><strong>(US01)</strong> Eu como usuário quero acessar o sistema para que eu consiga gerenciar as minhas disciplinas.</p>
+<hr />
+<h3 id="historia-de-usuario-02-gerenciamento-de-disciplinas">História de Usuário 02 - Gerenciamento de Disciplinas</h3>
+<h4 id="cartao_1">Cartão</h4>
+<p>"Eu como usuário quero poder gerenciar as disciplinas que estou cursando no semestre dentro da plataforma."</p>
+<h4 id="conversacao_1">Conversação</h4>
+<ul>
+<li>O usuário pode selecionar quantas disciplinas ele quiser?</li>
+<li>O que acontece se o usuário estiver cursando apenas uma disciplina? Ele pode escolher apenas uma?</li>
+<li>O usuário busca disciplinas pelo nome ou código?</li>
+<li>Podemos incluir a busca por professor também?</li>
+<li>O usuário poderá cadastrar disciplinas no sistema?</li>
+<li>O usuário poderá visualizar a disciplina?</li>
+<li>O usuário poderá remover a disciplina?</li>
+</ul>
+<p><strong>Resposta:</strong></p>
+<p>O usuário pode escolher <strong>pelo menos uma disciplina</strong> e a busca será feita por <strong>nome da disciplina</strong> ou <strong>código</strong>. A busca por professor não é necessária para a funcionalidade.</p>
+<p>O usuário <strong>não poderá</strong> cadastrar nenhuma disciplina, isso será feito com um serviço de Webscraping do site do SIGAA.</p>
+<p>O usuário poderá <strong>visualizar</strong> a disciplina para que possa efetuar as operações disponíveis no sistema.</p>
+<p>O usuário também poderá <strong>remover</strong> a disciplina do seu menu de disciplinas.</p>
+<h4 id="confirmacao_1">Confirmação</h4>
+<ul>
+<li>O usuário poderá escolher <strong>uma ou mais disciplinas</strong>.</li>
+<li>A busca pelas disciplinas será feita através do <strong>nome</strong> ou <strong>código</strong> da disciplina.</li>
+<li>O usuário não poderá cadastrar disciplinas novas.</li>
+<li>O usuário poderá visualizar a disciplina.</li>
+<li>O usuário poderá remover as disciplinas.</li>
+</ul>
+<p><strong>(US02)</strong> Como usuário, eu quero poder gerenciar as disciplinas que estou cursando dentro do meu semstre.</p>
+<hr />
+<h3 id="historia-de-usuario-03-calculo-de-mencao-e-de-media">História de Usuário 03 - Cálculo de Menção e de Média</h3>
+<h4 id="cartao_2">Cartão</h4>
+<p>"Eu como usuário quero saber minhas médias parciais e totais das disciplinas que estou cursando e ao final do semestre ver a menção."</p>
+<h4 id="conversacao_2">Conversação</h4>
+<ul>
+<li>O usuário indica a <strong>nota que obteve</strong> ou o sistema calcula as <strong>notas mínimas</strong> necessárias?</li>
+<li>O sistema deve considerar diferentes formas de calcular a média: média simples, média ponderada ou outro cálculo?</li>
+</ul>
+<p><strong>Resposta:</strong></p>
+<p>O usuário indica a <strong>quantidade de avaliações</strong> e os seus respectivos <strong>pesos</strong>, sendo em seguida calculada a sua média.</p>
+<p>O sistema deve considerar apenas o cálculo de médias personalizadas, o qual o usuário oferece a <strong>quantidade de avaliações</strong> e os seus respectivos <strong>pesos</strong>.</p>
+<h4 id="confirmacao_2">Confirmação</h4>
+<ul>
+<li>O usuário indicará a quantidade de avaliações e seus respectivos pesos</li>
+</ul>
+<p><strong>(US03)</strong> Eu como usuário quero saber minhas médias parciais e totais das disciplinas que estou cursando e ao final do semestre ver a menção.</p>
+<hr />
+<h3 id="historia-de-usuario-04-gerenciar-o-calendario-de-provas-e-avaliacoes">História de Usuário 04 - Gerenciar o Calendário de Provas e Avaliações</h3>
+<h4 id="cartao_3">Cartão</h4>
+<p>"Como usuário, eu quero gerar um calendário para acompanhar as datas das provas e avaliações acadêmicas."</p>
+<h4 id="conversacao_3">Conversação</h4>
+<ul>
+<li>O usuário tem as <strong>datas das provas e das avaliações</strong> previamente ou o sistema irá puxá-las de algum lugar?</li>
+<li>O usuário pode <strong>adicionar ou editar</strong> as datas manualmente?</li>
+<li>O usuário poderá <strong>integrar</strong> o calendário com outras ferramentas? (ex: Google Calendar)</li>
+</ul>
+<p><strong>Resposta:</strong></p>
+<p>O sistema permitirá que o usuário <strong>adicione</strong> ou <strong>edite</strong> as avaliações nas respectivas datas com o seu devido título de forma manual.</p>
+<p>O sistema permitirá que o usuário faça a integração do calendário com o <strong>Google Calendar</strong></p>
+<h4 id="confirmacao_3">Confirmação</h4>
+<ul>
+<li>
+<p>O usuário poderá <strong>gerar um calendário</strong> com as datas das provas, com informações inseridas manualmente pelo usuário.</p>
+</li>
+<li>
+<p>O usuário poderá integrar o calendário do sistema com o <strong>Google Calendar</strong></p>
+</li>
+</ul>
+<p><strong>(US04)</strong> Como usuário, eu quero gerar um calendário para acompanhar as datas das provas.</p>
+<hr />
+<!--
+### História de Usuário 06 - Gerar Link para Salvar Dados
+
+#### Cartão
+
+"Como usuário, eu quero gerar um link para salvar meus dados e progresso, para que eu possa acessá-los ou compartilhá-los facilmente de qualquer dispositivo."
+
+#### Conversação
+
+- Os dados salvos incluirão quais informações?
+- Como o usuário acessará os dados salvos?
+
+**Resposta:** Os dados incluirão perfil do usuário, disciplinas escolhidas, notas calculadas, índice de rendimento acadêmico (IRA) e calendário de provas/avaliações. E, ao acessar o link, o sistema restaurará o estado salvo, permitindo que o usuário continue de onde parou ou utilize as informações compartilhadas.
+
+#### Confirmação
+
+- O usuário poderá **gerar** um link contendo informações sobre perfil, progresso, disciplinas, notas, IRA e calendário
+- Esse link será acessível em **qualquer** dispositivo e permitirá **compartilhamento** fácil.
+
+**(US07)** Como usuário, eu quero gerar um link para salvar meus dados e progresso, para que eu possa acessá-los ou compartilhá-los facilmente de qualquer dispositivo. -->
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  </body>
+</html>
