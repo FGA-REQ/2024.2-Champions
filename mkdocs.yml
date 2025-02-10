@@ -11,6 +11,7 @@ theme:
     footer:
       copyright: "© 2025 MediaMestre"
 nav:
+  - Apresentação para o cliente: "apresentacao.md"
   - Página Inicial: "index.md"
   - Histórico de Versões: "historico.md"
   - Visão do Produto e do Projeto: "visao-produto-projeto.md"
