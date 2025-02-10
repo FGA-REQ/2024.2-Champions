@@ -16,7 +16,7 @@ templates = Jinja2Templates(directory="templates")
 def ver_disciplinas(request: Request, db: Session = Depends(get_db)):
     repo = DisciplineRepository(db)
     disciplinas = repo.list_all()
-    return templates.TemplateResponse("ver_disciplinas.html", {"request": request, "disciplinas": disciplinas})
+    return templates.TemplateResponse("cursos.html", {"request": request, "disciplinas": disciplinas})
 
 @router.post("/")
 def create_disciplinas(discipline: Discipline, db: Session = Depends(get_db)):

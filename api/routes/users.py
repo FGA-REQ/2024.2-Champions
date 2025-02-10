@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session
 from api.infra.sqlalchemy.config.db import get_db
 from api.infra.sqlalchemy.repositories.user import UserRepository
 from api.infra.sqlalchemy.repositories.discipline import DisciplineRepository
+#from api.infra.sqlalchemy.repositories.media import MediaRepository
 from api.infra.providers import hash_provider
 from api.schemas.schemas import User
 from api.dependencies import get_current_user
@@ -64,10 +65,14 @@ async def discipline_management_page(request: Request, search: str = None, db: S
 @router.get('/disciplines', response_class=HTMLResponse)
 async def discipline_page(request: Request, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
     user = UserRepository(db).get_user_by_email(current_user.email)
+    disciplina = DisciplineRepository(db).search_discipline(request.query_params.get('code'))
+    if disciplina:
+        return templates.TemplateResponse("media.html", {"request": request, "disciplina": disciplina})
     return templates.TemplateResponse("cursos.html", {"request": request, "disciplinas": user.disciplines})
 
 
 # Rota de login (processamento do formulário)
+    
 @router.post("/login")
 async def login_post(
     email: str = Form(...),
@@ -149,5 +154,19 @@ async def discipline_add(
         )
     return RedirectResponse(
         f'/discipline-management?message=Disciplina adicionada com sucesso!',
+        status_code=status.HTTP_303_SEE_OTHER
+    )
+
+
+@router.post('/disciplines')
+async def discipline_calc(
+    code: str = Form(...),
+    turma:  str = Form(...),
+    media:  str = Form(...),
+    db: Session = Depends(get_db), 
+    current_user: User = Depends(get_current_user)
+):
+    return RedirectResponse(
+        f'/disciplines?code={code}&turma={turma}&calc={media}',
         status_code=status.HTTP_303_SEE_OTHER
     )

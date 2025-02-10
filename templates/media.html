@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+ <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css" />
+    <script>
+        function calcularMedia() {
+            let inputs = document.querySelectorAll("input[name='nota']");
+            let soma = 0;
+            let total = 0;
+
+            inputs.forEach(input => {
+                let valor = parseFloat(input.value);
+                if (!isNaN(valor)) {
+                    soma += valor;
+                    total++;
+                }
+            });
+
+            let media = total > 0 ? (soma / total).toFixed(2) : "Nenhuma nota inserida";
+            document.getElementById("resultado").innerText = "Média: " + media;
+        }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h2>MédiaMestre</h2>
+      <br/>
+      <p class="welcome-text">{{ disciplina.disciplina_nome }}</p>
+      {% if request.query_params.get('turma') %}
+          <h2>Digite suas notas:</h2>
+      
+          <form onsubmit="event.preventDefault(); calcularMedia();">
+              <p>Digite a nota:</p>
+              
+              {% for i in request.query_params.get('calc').split(';')%}
+              {% if 'NF' not in i %}
+              <input type="text" name="nota" placeholder="Nota {{ i }}" required>
+              {% endif %}
+              {% endfor %}
+              <br><br>
+              <button type="submit">Calcular Média</button>
+          </form>
+      
+          <h3 id="resultado"></h3>
+      
+      {% else %}
+
+      
+
+        <P>{{ request.query_params.get('code') }}</p>
+          <form method="post" action="/disciplines">
+            <label for="turma">Cálculo de Média:</label>
+              <input type="hidden" name="code" value="{{ request.query_params.get('code') }}">
+              <p>Número da turma:
+              <input
+                type="text"
+                id="turma"
+                name="turma"
+                placeholder="Digite o numero da turma:"
+                required
+              />
+              <label for="calculo">Escreva o cálculo da média:</label>
+                <input
+                  type="text"
+                  id="media"
+                  name="media"
+                  placeholder=" P1; P2; T1; T2; NF = P1 + P2 + (T1 + T2)/2 "
+                  required
+                />
+                <p>Como calcular a média:<br/>
+                  exemplo de código: 
+                  P1;
+                  P2;
+                  T1;
+                  T2;
+                  NF = P1 + P2 + (T1 + T2)/2<br/>
+                  * Sempre o bloco final com a Nota sendo atribuída à NF!
+                </p>
+  
+            <button type="submit">Adicionar Turma</button>
+          </form>
+        {% endif %}
+
+      <a href="/dashboard">
+        <button>Voltar ao menu</button>
+      </a>
+    </div>
+  </body>
+</html> 
+
+

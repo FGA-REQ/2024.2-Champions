@@ -83,7 +83,7 @@
             <tr>
               {% for disciplina in disciplinas %}
                 <td>
-                  <a href="/disciplinas/{{ disciplina.discipline_code }}">
+                  <a href="/disciplines?code={{ disciplina.discipline_code }}">
                     <div class="container">
                       <p>{{ disciplina.discipline_name }}</p>
                       <p>{{ disciplina.discipline_code }}</p>
