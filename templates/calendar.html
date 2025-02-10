@@ -1,167 +1,3 @@
-<!--<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calendário de Tarefas</title>
-    <link rel="stylesheet" href="/static/style.css" />
-    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.5/main.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fullcalendar/google-calendar@5.11.5/main.global.min.js"></script>
-    <script src="https://apis.google.com/js/api.js"></script>
-</head>
-<body>
-    <div class="calendar-container">
-        <h2>Calendário de Tarefas</h2>
-		<p>Aqui você pode visualizar e adicionar suas tarefas diárias.</p>
-		
-        <button id="google-login">Conectar ao Google Calendar</button>
-        <button id="google-logout" style="display: none;">Desconectar</button>
-		
-        <div id="calendar" class="calendar"></div>
-        <div id="task-container" class="task-container" style="display: none">
-            <h3>Tarefa para o dia <span id="task-day"></span></h3>
-            <form id="task-form" class="task-form">
-                <input type="text" id="task-input" placeholder="Digite sua tarefa..." required />
-                <button type="submit">Adicionar</button>
-            </form>
-            <div id="task-list" class="task-list"></div>
-        </div>
-        <button onclick="window.location.href='/dashboard'" class="back-to-dashboard">Voltar para o Dashboard</button>
-    </div>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var calendarEl = document.getElementById('calendar');
-			var googleLoginBtn = document.getElementById('google-login');
-            var googleLogoutBtn = document.getElementById('google-logout');
-            var taskContainer = document.getElementById('task-container');
-            var taskDay = document.getElementById('task-day');
-            var taskInput = document.getElementById('task-input');
-            var taskList = document.getElementById('task-list');
-            var taskForm = document.getElementById('task-form');
-			
-			var CLIENT_ID = '713362341416-2mqdtd6mt1re2r8rl5te87ijk8u0ohng.apps.googleusercontent.com';
-            var API_KEY = 'AIzaSyAodsmzUCeJhoA8dS3AMg_4mkHy_ZKYcSY';
-            var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
-            var SCOPES = "https://www.googleapis.com/auth/calendar";
-            var gapiLoaded = false;
-			
-            var localEvents = [];
-
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                locale: 'pt-br',
-                selectable: true,
-                editable: true,
-                events: localEvents,
-                dateClick: function(info) {
-                    taskDay.textContent = info.dateStr;
-                    taskContainer.style.display = 'block';
-                    taskInput.value = '';
-                    taskList.innerHTML = '';
-					
-                    var tasksForDate = localEvents.filter(e => e.start === info.dateStr);
-                    tasksForDate.forEach(t => addTaskToList(t));
-                    taskForm.dataset.selectedDate = info.dateStr;
-                }
-            });
-            calendar.render();
-			
-			function handleClientLoad() {
-                gapi.load('client', () => {
-                    gapi.client.init({
-                        apiKey: API_KEY,
-                        clientId: CLIENT_ID,
-                        discoveryDocs: DISCOVERY_DOCS,
-                        scope: SCOPES
-                    }).then(() => {
-                        gapi.auth2.getAuthInstance().signIn();
-                    }).catch(error => console.error("Erro na inicialização do cliente:", error));
-                });
-
-            }
-
-            function initClient() {
-                gapi.client.init({
-                    apiKey: "AIzaSyAodsmzUCeJhoA8dS3AMg_4mkHy_ZKYcSY",
-                    clientId: "713362341416-2mqdtd6mt1re2r8rl5te87ijk8u0ohng.apps.googleusercontent.com",
-                    discoveryDocs: DISCOVERY_DOCS,
-                    scope: SCOPES
-                }).then(function () {
-                    gapiLoaded = true;
-                    var GoogleAuth = gapi.auth2.getAuthInstance();
-                    updateSigninStatus(GoogleAuth.isSignedIn.get());
-                    GoogleAuth.isSignedIn.listen(updateSigninStatus);
-                });
-            }
-
-            function updateSigninStatus(isSignedIn) {
-                if (isSignedIn) {
-                    googleLoginBtn.style.display = 'none';
-                    googleLogoutBtn.style.display = 'block';
-                    listUpcomingEvents();
-                } else {
-                    googleLoginBtn.style.display = 'block';
-                    googleLogoutBtn.style.display = 'none';
-                    calendar.getEvents().forEach(event => event.remove());
-                }
-            }
-			
-			function listUpcomingEvents() {
-                gapi.client.calendar.events.list({
-                    'calendarId': 'primary',
-                    'timeMin': (new Date()).toISOString(),
-                    'showDeleted': false,
-                    'singleEvents': true,
-                    'maxResults': 10,
-                    'orderBy': 'startTime'
-                }).then(function(response) {
-                    response.result.items.forEach(event => {
-                        var newEvent = {
-                            title: event.summary,
-                            start: event.start.dateTime || event.start.date,
-                            allDay: !event.start.dateTime
-                        };
-                        calendar.addEvent(newEvent);
-                    });
-                });
-            }
-
-            googleLoginBtn.onclick = function() {
-                if (!gapiLoaded) {
-                    handleClientLoad();  // Tenta carregar a API antes
-                }
-                gapi.auth2.getAuthInstance().signIn();
-            };
-
-            googleLogoutBtn.onclick = function() {
-                gapi.auth2.getAuthInstance().signOut().then(() => {
-                    updateSigninStatus(false);
-                });
-            };
-
-            taskForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                var selectedDate = taskForm.dataset.selectedDate;
-                if (!selectedDate) return;
-
-                var taskText = taskInput.value.trim();
-                if (taskText !== "") {
-                    var newEvent = { title: taskText, start: selectedDate, allDay: true };
-                    localEvents.push(newEvent);
-                    calendar.addEvent(newEvent);
-                    var taskItem = document.createElement('div');
-                    taskItem.textContent = taskText;
-                    taskList.appendChild(taskItem);
-                    taskInput.value = "";
-                }
-            });
-        });
-    </script>
-</body>
-</html>-->
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
@@ -180,20 +16,18 @@
     <script src="https://apis.google.com/js/api.js"></script>
 
     <style>
+      /* Estilos gerais e layout */
       body {
         font-family: 'Poppins', sans-serif;
         margin: 0;
         padding: 0;
         display: flex;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
-        height: 100vh;
+        align-items: center;
         background: linear-gradient(to right, #eef2f3, #8e9eab);
-        padding-top: 60px; /* Para garantir que o conteúdo não fique escondido atrás da barra fixa */
+        padding-top: 60px;
       }
-
-      /* Barra superior fixa */
+      /* Cabeçalho fixo */
       .top-bar {
         width: 100%;
         background: linear-gradient(to right, #526cfe, #4052c4);
@@ -218,8 +52,7 @@
         margin-right: 20px;
         text-align: right;
       }
-
-      /* Estilo do container */
+      /* Container principal */
       .calendar-container {
         background: #f4f4f4;
         width: 60%;
@@ -229,9 +62,9 @@
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         border: 4px solid transparent;
         background-clip: padding-box;
-        position: relative;
-        margin-top: 80px; /* Ajuste para dar espaço depois da barra fixa */
+        margin-top: 80px;
         text-align: center;
+        position: relative;
       }
       .calendar-container::before {
         content: "";
@@ -244,13 +77,14 @@
         border: 3px solid #526cfe;
         z-index: -1;
       }
-
       h2 {
         color: #526cfe;
         font-size: 30px;
         margin-bottom: 20px;
       }
-
+      p {
+        margin-bottom: 20px;
+      }
       button {
         background: linear-gradient(to right, #526cfe, #4052c4);
         color: white;
@@ -266,28 +100,24 @@
         background: linear-gradient(to right, #4052c4, #526cfe);
         transform: translateY(-3px);
       }
-
       .back-to-dashboard {
         background: #6c757d;
         margin-top: 20px;
       }
-
+      /* Container para inserir tarefas – posicionado dentro do container principal */
       #task-container {
         margin-top: 20px;
         display: none;
       }
-
       #task-container h3 {
         font-size: 20px;
         color: #526cfe;
       }
-
       .task-form {
         display: flex;
         justify-content: space-between;
         margin-top: 10px;
       }
-
       .task-form input {
         width: 80%;
         padding: 10px;
@@ -295,11 +125,9 @@
         border-radius: 8px;
         border: 1px solid #ccc;
       }
-
       .task-form button {
         width: 18%;
       }
-
       .task-list {
         margin-top: 20px;
         padding: 10px;
@@ -309,17 +137,43 @@
         max-height: 200px;
         overflow-y: auto;
       }
-
       .task-list div {
-        padding: 5px;
+        display: flex;           /* Usa Flexbox para organizar o conteúdo */
+        align-items: center;
+        padding: 15px;
         background: #fff;
         border-radius: 4px;
         margin-bottom: 8px;
       }
+      .task-list div span {
+        font-size: 18px;      /* Aumenta o tamanho da fonte */
+        margin-right: 15px;   /* Espaço entre o texto e os botões */
+        flex: 1;              /* O span ocupa todo o espaço disponível */
+        text-align: left;
+      }
+      .task-list div button {
+        font-size: 14px;      /* Botões com fonte menor */
+        padding: 4px 8px;     /* Menor padding */
+        margin-left: 5px;     /* Espaço entre os botões */
+      }
+      /* Exibição da tarefa como faixa no calendário */
+      .task-band {
+        background-color: #ffffff;
+        color: #000;
+        border-radius: 4px;
+        padding: 2px 4px;
+        font-size: 12px;
+        text-align: center;
+        margin: 1px 0;
+      }
+      /* Destacar o dia selecionado */
+      .fc-daygrid-day.selected {
+        background-color: lightblue !important;
+      }
     </style>
   </head>
   <body>
-    <!-- Barra superior -->
+    <!-- Cabeçalho -->
     <div class="top-bar">
       <div class="site-name">Média Mestre</div>
       <div class="info">Este site trata-se apenas de um simulador de médias.</div>
@@ -329,16 +183,13 @@
     <div class="calendar-container">
       <h2>Calendário de Tarefas</h2>
       <p>Aqui você pode visualizar e adicionar suas tarefas diárias.</p>
-
-      <!-- Botões de autenticação Google -->
       <button id="google-login">Conectar ao Google Calendar</button>
       <button id="google-logout" style="display: none;">Desconectar</button>
-
-      <!-- FullCalendar -->
+      <!-- Calendário -->
       <div id="calendar" class="calendar"></div>
-
-      <!-- Container para adicionar tarefas locais -->
-      <div id="task-container" class="task-container" style="display: none">
+      
+      <!-- Container para inserir tarefas -->
+      <div id="task-container">
         <h3>Tarefa para o dia <span id="task-day"></span></h3>
         <form id="task-form" class="task-form">
           <input type="text" id="task-input" placeholder="Digite sua tarefa..." required />
@@ -346,17 +197,30 @@
         </form>
         <div id="task-list" class="task-list"></div>
       </div>
-
-      <!-- Botão para voltar ao Dashboard -->
-      <button onclick="window.location.href='/dashboard'" class="back-to-dashboard">
-        Voltar para o Dashboard
-      </button>
     </div>
+      
+    <button onclick="window.location.href='/dashboard'" class="back-to-dashboard">
+      Voltar para o Dashboard
+    </button>
 
     <script>
+      // Função para formatar a data de ISO (YYYY-MM-DD) para DD/MM/YYYY
+      function formatDate(isoDate) {
+        const [year, month, day] = isoDate.split('-');
+        return `${day}/${month}/${year}`;
+      }
+
+      // Carrega a API do Google ao iniciar a página
       document.addEventListener('DOMContentLoaded', function() {
-        handleClientLoad(); // Adicionado para carregar a API ao iniciar a página
+        handleClientLoad();
       });
+
+      // Função auxiliar para obter um cookie (usado na autenticação)
+      function getCookie(name) {
+        const value = `; ${document.cookie}`;
+        const parts = value.split(`; ${name}=`);
+        if (parts.length === 2) return parts.pop().split(';').shift();
+      }
 
       document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
@@ -367,110 +231,202 @@
         var taskInput = document.getElementById('task-input');
         var taskList = document.getElementById('task-list');
         var taskForm = document.getElementById('task-form');
-        
+
         var CLIENT_ID = '713362341416-2mqdtd6mt1re2r8rl5te87ijk8u0ohng.apps.googleusercontent.com';
         var API_KEY = 'AIzaSyAodsmzUCeJhoA8dS3AMg_4mkHy_ZKYcSY';
         var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
         var SCOPES = "https://www.googleapis.com/auth/calendar";
         var gapiLoaded = false;
 
-        var localEvents = [];
-
+        // Inicializa o FullCalendar com eventos carregados do backend
         var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                locale: 'pt-br',
-                selectable: true,
-                editable: true,
-                events: localEvents,
-                dateClick: function(info) {
-                    taskDay.textContent = info.dateStr;
-                    taskContainer.style.display = 'block';
-                    taskInput.value = '';
-                    taskList.innerHTML = '';
-					
-                    var tasksForDate = localEvents.filter(e => e.start === info.dateStr);
-                    tasksForDate.forEach(t => addTaskToList(t));
-                    taskForm.dataset.selectedDate = info.dateStr;
+          initialView: 'dayGridMonth',
+          locale: 'pt-br',
+          selectable: true,
+          editable: true,
+          // Busca os eventos (tarefas) do backend
+          events: async function(fetchInfo, successCallback, failureCallback) {
+            try {
+              const response = await fetch('/tarefas/', {
+                method: 'GET',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${getCookie('user_email')}`
                 }
+              });
+              const tasks = await response.json();
+              const events = tasks.map(task => ({
+                title: task.assunto,
+                start: task.data,
+                id: task.tarefa_id,
+                allDay: true
+              }));
+              successCallback(events);
+            } catch (error) {
+              console.error('Erro ao carregar tarefas:', error);
+              failureCallback(error);
+            }
+          },
+          // Renderiza cada evento (tarefa) como uma "faixa"
+          eventContent: function(arg) {
+            var band = document.createElement('div');
+            band.classList.add('task-band');
+            band.innerText = arg.event.title;
+            return { domNodes: [band] };
+          },
+          dateClick: function(info) {
+            // Remove a classe 'selected' de dias previamente selecionados
+            document.querySelectorAll('.fc-daygrid-day.selected').forEach(function(el) {
+              el.classList.remove('selected');
             });
+            var cell = document.querySelector('.fc-daygrid-day[data-date="' + info.dateStr + '"]');
+            if (cell) {
+              cell.classList.add('selected');
+            }
+            // Exibe a aba de tarefas e define a data selecionada
+            // Exibe a data no formato DD/MM/YYYY, mas armazena a data original (ISO) no dataset
+            taskDay.textContent = formatDate(info.dateStr);
+            taskContainer.style.display = 'block';
+            taskInput.value = '';
+            taskList.innerHTML = '';
+            taskForm.dataset.selectedDate = info.dateStr;
+            loadTasksForDate(info.dateStr);
+          }
+        });
         calendar.render();
 
+        // Função para carregar as tarefas de uma data específica (filtrando os retornados pelo backend)
+        async function loadTasksForDate(date) {
+          try {
+            const response = await fetch('/tarefas/', {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getCookie('user_email')}`
+              }
+            });
+            const tasks = await response.json();
+            // Filtra as tarefas cuja data seja exatamente a selecionada (formato ISO)
+            const filteredTasks = tasks.filter(task => task.data === date);
+            taskList.innerHTML = '';
+            filteredTasks.forEach(task => {
+              var taskItem = document.createElement('div');
+              taskItem.innerHTML = `<span>${task.assunto}</span>
+                <button onclick="editTask('${task.tarefa_id}')">Editar</button>
+                <button onclick="deleteTask('${task.tarefa_id}')">Excluir</button>`;
+              taskList.appendChild(taskItem);
+            });
+          } catch (error) {
+            console.error('Erro ao carregar tarefas para o dia:', error);
+          }
+        }
+
+        // Inicializa a API do Google
         function handleClientLoad() {
-          gapi.load('client', () => {
+          gapi.load('client', function() {
             gapi.client.init({
               apiKey: API_KEY,
               clientId: CLIENT_ID,
               discoveryDocs: DISCOVERY_DOCS,
               scope: SCOPES
-            }).then(() => {
+            }).then(function() {
               gapi.auth2.getAuthInstance().signIn();
-            }).catch(error => console.error("Erro na inicialização do cliente:", error));
+              gapiLoaded = true;
+            }).catch(function(error) {
+              console.error("Erro na inicialização do cliente:", error);
+            });
           });
         }
 
         googleLoginBtn.onclick = function() {
           if (!gapiLoaded) {
-            handleClientLoad();  // Tenta carregar a API antes
+            handleClientLoad();
           }
           gapi.auth2.getAuthInstance().signIn();
         };
 
-            googleLogoutBtn.onclick = function() {
-                gapi.auth2.getAuthInstance().signOut().then(() => {
-                    updateSigninStatus(false);
-                });
-            };
-			
-            function addTaskToList(task) {
-                var taskItem = document.createElement('div');
-                taskItem.innerHTML = `<span>${task.title}</span>
-                    <button onclick="editTask('${task.title}', '${task.start}')">Editar</button>
-                    <button onclick="deleteTask('${task.title}', '${task.start}')">Excluir</button>`;
-                taskList.appendChild(taskItem);
-            }
+        googleLogoutBtn.onclick = function() {
+          gapi.auth2.getAuthInstance().signOut().then(function() {
+            // Atualize o status de login, se necessário
+          });
+        };
 
-            taskForm.addEventListener('submit', function(event) {
-                event.preventDefault();
-                var selectedDate = taskForm.dataset.selectedDate;
-                if (!selectedDate) return;
-                var taskText = taskInput.value.trim();
-                if (taskText !== "") {
-                    var newEvent = { title: taskText, start: selectedDate, allDay: true };
-                    localEvents.push(newEvent);
-                    calendar.addEvent(newEvent);
-                    addTaskToList(newEvent);
-                    taskInput.value = "";
-                }
-            });
-
-            window.editTask = function(title, date) {
-                var newTitle = prompt("Editar tarefa:", title);
-                if (newTitle) {
-                    localEvents = localEvents.map(event =>
-                        event.title === title && event.start === date ? { ...event, title: newTitle } : event
-                    );
-                    calendar.getEvents().forEach(event => {
-                        if (event.title === title && event.startStr === date) {
-                            event.remove();
-                            calendar.addEvent({ title: newTitle, start: date, allDay: true });
-                        }
-                    });
-                    taskContainer.style.display = 'none';
-                }
+        // Ao submeter o formulário, envia a tarefa para o backend e atualiza o calendário
+        taskForm.addEventListener('submit', async function(event) {
+          event.preventDefault();
+          var selectedDate = taskForm.dataset.selectedDate;
+          if (!selectedDate) return;
+          var taskText = taskInput.value.trim();
+          if (taskText !== "") {
+            try {
+              const response = await fetch('/tarefas/', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${getCookie('user_email')}`
+                },
+                body: JSON.stringify({
+                  data: selectedDate,
+                  assunto: taskText
+                })
+              });
+              if (!response.ok) throw new Error(await response.text());
+              // Atualiza o calendário e a lista de tarefas para a data selecionada
+              calendar.refetchEvents();
+              loadTasksForDate(selectedDate);
+              taskInput.value = "";
+            } catch (error) {
+              console.error("Erro ao salvar tarefa:", error);
+              alert("Erro ao salvar tarefa: " + error.message);
             }
-
-            window.deleteTask = function(title, date) {
-                if (confirm("Tem certeza que deseja excluir esta tarefa?")) {
-                    localEvents = localEvents.filter(event => !(event.title === title && event.start === date));
-                    calendar.getEvents().forEach(event => {
-                        if (event.title === title && event.startStr === date) {
-                            event.remove();
-                        }
-                    });
-                    taskContainer.style.display = 'none';
-                }
-            }
+          }
         });
+
+        // Função global para editar uma tarefa (por id)
+        window.editTask = async function(taskId) {
+          var newTitle = prompt("Editar tarefa:");
+          if (newTitle) {
+            try {
+              const response = await fetch(`/tarefas/${taskId}`, {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${getCookie('user_email')}`
+                },
+                body: JSON.stringify({ 
+                  assunto: newTitle, 
+                  data: taskForm.dataset.selectedDate  // Garante que a data seja enviada
+                })
+              });
+              if (!response.ok) throw new Error(await response.text());
+              calendar.refetchEvents();
+              loadTasksForDate(taskForm.dataset.selectedDate);
+            } catch (error) {
+              console.error("Erro ao editar tarefa:", error);
+              alert("Erro ao editar tarefa: " + error.message);
+            }
+          }
+        };
+        // Função global para excluir uma tarefa (por id)
+        window.deleteTask = async function(taskId) {
+          if (confirm("Tem certeza que deseja excluir esta tarefa?")) {
+            try {
+              const response = await fetch(`/tarefas/${taskId}`, {
+                method: 'DELETE',
+                headers: {
+                  'Authorization': `Bearer ${getCookie('user_email')}`
+                }
+              });
+              if (!response.ok) throw new Error(await response.text());
+              calendar.refetchEvents();
+              loadTasksForDate(taskForm.dataset.selectedDate);
+            } catch (error) {
+              console.error("Erro ao excluir tarefa:", error);
+              alert("Erro ao excluir tarefa: " + error.message);
+            }
+          }
+        };
+      });
     </script>
-</body>
+  </body>
 </html>

@@ -1,5 +1,6 @@
 from pydantic import BaseModel, EmailStr
 from typing import Optional, List
+from datetime import date 
 
 # Course
 class Course(BaseModel):
@@ -40,3 +41,17 @@ class UserCreate(BaseModel):
 class LoginData(BaseModel):
     email: EmailStr
     password: str
+
+class TarefaBase(BaseModel):
+    data: date
+    assunto: str
+
+class TarefaCreate(TarefaBase):
+    pass
+
+class Tarefa(TarefaBase):
+    tarefa_id: int
+    user_email: str
+
+    class Config:
+        orm_mode = True
