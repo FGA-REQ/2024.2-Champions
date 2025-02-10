@@ -62,3 +62,31 @@ O MediaMestre é uma iniciativa pensada e projetada para alunos da Universidade 
       </a>
     </td>
 </div>
+
+## Especificações Técnicas do Repositório
+
+## Instalação
+
+```bash
+git clone https://github.com/seu-usuario/nome-do-projeto.git
+```
+
+```
+python -m venv venv (Windows)
+python3 -m venv venv (Linux e macOS)
+```
+
+```
+.\venv\Scripts\activate (Windows)
+source venv/bin/activate  (Linux e macOS)
+```
+
+```
+pip install -r requirements.txt
+```
+
+## Para rodar a aplicação
+
+```
+uvicorn api.main:app --reload
+```
