@@ -63,6 +63,9 @@ O MediaMestre é uma iniciativa pensada e projetada para alunos da Universidade 
 ```bash
 git clone https://github.com/FGA-REQ/2024.2-Champions.git
 ```
+```
+git checkout develop
+```
 
 ```
 python -m venv venv (Windows)
