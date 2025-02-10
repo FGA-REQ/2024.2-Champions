@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard</title>
     <link rel="stylesheet" href="/static/style.css" />
+    {% if request.query_params.get('calc')%}
     <script>
-        function calcularMedia() {
-            let inputs = document.querySelectorAll("input[name='nota']");
-            let soma = 0;
-            let total = 0;
-
-            inputs.forEach(input => {
-                let valor = parseFloat(input.value);
-                if (!isNaN(valor)) {
-                    soma += valor;
-                    total++;
-                }
-            });
-
-            let media = total > 0 ? (soma / total).toFixed(2) : "Nenhuma nota inserida";
-            document.getElementById("resultado").innerText = "Média: " + media;
-        }
+      function calcularMedia() {
+        {% for i in request.query_params.get('calc').split(';') %}
+            {% if "NF" in i %}
+                var {{ i.replace('?', '+') }};
+            {% else %}
+                let {{ i }} = Number(document.querySelector("input[name='{{i.replace(' ', '')}}']").value);
+            {% endif %}
+        {% endfor %}
+        document.getElementById("resultado").innerText = "Média: " + NF.toFixed(2) ;
+      
+      }
     </script>
+    
+    {% endif %}
   </head>
   <body>
     <div class="container">
@@ -37,7 +35,7 @@
               
               {% for i in request.query_params.get('calc').split(';')%}
               {% if 'NF' not in i %}
-              <input type="text" name="nota" placeholder="Nota {{ i }}" required>
+              <input type="text" name="{{ i.replace(' ', '') }}" placeholder="Nota {{ i.replace(' ', '') }}" required>
               {% endif %}
               {% endfor %}
               <br><br>

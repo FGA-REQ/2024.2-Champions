@@ -166,7 +166,10 @@ async def discipline_calc(
     db: Session = Depends(get_db), 
     current_user: User = Depends(get_current_user)
 ):
+    media = media.replace('+', '?')
+    print(media)
     return RedirectResponse(
         f'/disciplines?code={code}&turma={turma}&calc={media}',
         status_code=status.HTTP_303_SEE_OTHER
     )
+
